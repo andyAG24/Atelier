@@ -1,14 +1,3 @@
-/Atelier/__pycache__
-/Client/__pycache__
-/Employee/__pycache__
-/Material/__pycache__
-/MaterialCategory/__pycache__
-/Order/__pycache__
-/Service/__pycache__
+/*/__pycache__
 
-/Client/migrations
-/Employee/migrations
-/Material/migrations
-/MaterialCategory/migrations
-/Order/migrations
-/Service/migrations
+/*/migrations
