@@ -1,13 +1,21 @@
 from django.db import models
+from django.utils.translation import ugettext_lazy as _
 
 class MaterialCategory(models.Model):
-    name = models.CharField(db_column='Name', max_length=50)  # Field name made lowercase.
-    comment = models.CharField(db_column='Comment', max_length=255, blank=True, null=True)  # Field name made lowercase.
+    name = models.CharField(db_column='Name', 
+                            verbose_name=_('Name'),
+                            max_length=50)  # Field name made lowercase.
+    comment = models.CharField(db_column='Comment', 
+                               verbose_name=_('Comment'),
+                               max_length=255, 
+                               blank=True, 
+                               null=True)  # Field name made lowercase.
 
     class Meta:
         managed = False
         db_table = 'material category'
-        verbose_name_plural = 'material categories'
+        verbose_name = _('Material category')
+        verbose_name_plural = _('Material categories')
 
     def __str__(self):
         return self.name
