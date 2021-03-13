@@ -1,0 +1,14 @@
+/Atelier/Atelier/__pycache__
+/Atelier/Client/__pycache__
+/Atelier/Employee/__pycache__
+/Atelier/Material/__pycache__
+/Atelier/MaterialCategory/__pycache__
+/Atelier/Order/__pycache__
+/Atelier/Service/__pycache__
+
+/Atelier/Client/migrations
+/Atelier/Employee/migrations
+/Atelier/Material/migrations
+/Atelier/MaterialCategory/migrations
+/Atelier/Order/migrations
+/Atelier/Service/migrations
