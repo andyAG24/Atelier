@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-03-13 16:21+0300\n"
+"POT-Creation-Date: 2021-03-14 15:22+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -19,6 +19,10 @@ msgstr ""
 "Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
 "%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || (n"
 "%100>=11 && n%100<=14)? 2 : 3);\n"
+
+#: .\Client\apps.py:6 .\Client\models.py:62 .\Order\models.py:71
+msgid "Client"
+msgstr "Клиент"
 
 #: .\Client\models.py:6 .\Employee\models.py:8 .\MaterialCategory\models.py:6
 #: .\Material\models.py:7 .\Service\models.py:7
@@ -77,21 +81,18 @@ msgstr "Ширина спины"
 msgid "Length waist-floor"
 msgstr "Длина от талии до пола"
 
-#: .\Client\models.py:62 .\Order\models.py:71
-msgid "Client"
-msgstr "Клиент"
-
 #: .\Client\models.py:63
 msgid "Clients"
 msgstr "Клиенты"
 
+#: .\Employee\apps.py:6 .\Employee\models.py:25 .\Employee\models.py:35
+#: .\Order\models.py:77
+msgid "Employee"
+msgstr "Мастер"
+
 #: .\Employee\models.py:17
 msgid "Work XP"
 msgstr "Опыт работы"
-
-#: .\Employee\models.py:25 .\Employee\models.py:35 .\Order\models.py:77
-msgid "Employee"
-msgstr "Мастер"
 
 #: .\Employee\models.py:26
 msgid "Employees"
@@ -105,18 +106,22 @@ msgstr "Услуга"
 msgid "Employee services"
 msgstr "Услуги мастера"
 
+#: .\MaterialCategory\apps.py:6 .\MaterialCategory\models.py:17
+msgid "Material category"
+msgstr "Категория материала"
+
 #: .\MaterialCategory\models.py:9 .\Material\models.py:20 .\Order\models.py:96
 #: .\Service\models.py:14
 msgid "Comment"
 msgstr "Комментарий"
 
-#: .\MaterialCategory\models.py:17
-msgid "Material category"
-msgstr "Категория материала"
-
 #: .\MaterialCategory\models.py:18
 msgid "Material categories"
 msgstr "Категории материала"
+
+#: .\Material\apps.py:6 .\Material\models.py:37 .\Order\models.py:120
+msgid "Material"
+msgstr "Материал"
 
 #: .\Material\models.py:12
 msgid "Category"
@@ -134,10 +139,6 @@ msgstr "Остаток (м)"
 msgid "Color"
 msgstr "Цвет"
 
-#: .\Material\models.py:37 .\Order\models.py:120
-msgid "Material"
-msgstr "Материал"
-
 #: .\Material\models.py:38
 msgid "Materials"
 msgstr "Материалы"
@@ -146,6 +147,11 @@ msgstr "Материалы"
 #, python-format
 msgid "%s %s, %s RUB (balance: %s m)"
 msgstr "%s %s, %s руб. (остаток: %s м)"
+
+#: .\Order\apps.py:6 .\Order\models.py:104 .\Order\models.py:114
+#: .\Order\models.py:137
+msgid "Order"
+msgstr "Заказ"
 
 #: .\Order\models.py:17
 msgid "Created"
@@ -226,10 +232,6 @@ msgstr "Время выполнения"
 #: .\Order\models.py:88
 msgid "Priority"
 msgstr "Приоритет"
-
-#: .\Order\models.py:104 .\Order\models.py:114 .\Order\models.py:137
-msgid "Order"
-msgstr "Заказ"
 
 #: .\Order\models.py:105
 msgid "Orders"

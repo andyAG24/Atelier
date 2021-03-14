@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-03-13 16:21+0300\n"
+"POT-Creation-Date: 2021-03-14 15:22+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,6 +17,10 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: .\Client\apps.py:6 .\Client\models.py:62 .\Order\models.py:71
+msgid "Client"
+msgstr ""
 
 #: .\Client\models.py:6 .\Employee\models.py:8 .\MaterialCategory\models.py:6
 #: .\Material\models.py:7 .\Service\models.py:7
@@ -75,20 +79,17 @@ msgstr ""
 msgid "Length waist-floor"
 msgstr ""
 
-#: .\Client\models.py:62 .\Order\models.py:71
-msgid "Client"
-msgstr ""
-
 #: .\Client\models.py:63
 msgid "Clients"
 msgstr ""
 
-#: .\Employee\models.py:17
-msgid "Work XP"
+#: .\Employee\apps.py:6 .\Employee\models.py:25 .\Employee\models.py:35
+#: .\Order\models.py:77
+msgid "Employee"
 msgstr ""
 
-#: .\Employee\models.py:25 .\Employee\models.py:35 .\Order\models.py:77
-msgid "Employee"
+#: .\Employee\models.py:17
+msgid "Work XP"
 msgstr ""
 
 #: .\Employee\models.py:26
@@ -103,17 +104,21 @@ msgstr ""
 msgid "Employee services"
 msgstr ""
 
+#: .\MaterialCategory\apps.py:6 .\MaterialCategory\models.py:17
+msgid "Material category"
+msgstr ""
+
 #: .\MaterialCategory\models.py:9 .\Material\models.py:20 .\Order\models.py:96
 #: .\Service\models.py:14
 msgid "Comment"
 msgstr ""
 
-#: .\MaterialCategory\models.py:17
-msgid "Material category"
-msgstr ""
-
 #: .\MaterialCategory\models.py:18
 msgid "Material categories"
+msgstr ""
+
+#: .\Material\apps.py:6 .\Material\models.py:37 .\Order\models.py:120
+msgid "Material"
 msgstr ""
 
 #: .\Material\models.py:12
@@ -132,10 +137,6 @@ msgstr ""
 msgid "Color"
 msgstr ""
 
-#: .\Material\models.py:37 .\Order\models.py:120
-msgid "Material"
-msgstr ""
-
 #: .\Material\models.py:38
 msgid "Materials"
 msgstr ""
@@ -143,6 +144,11 @@ msgstr ""
 #: .\Material\models.py:41
 #, python-format
 msgid "%s %s, %s RUB (balance: %s m)"
+msgstr ""
+
+#: .\Order\apps.py:6 .\Order\models.py:104 .\Order\models.py:114
+#: .\Order\models.py:137
+msgid "Order"
 msgstr ""
 
 #: .\Order\models.py:17
@@ -223,10 +229,6 @@ msgstr ""
 
 #: .\Order\models.py:88
 msgid "Priority"
-msgstr ""
-
-#: .\Order\models.py:104 .\Order\models.py:114 .\Order\models.py:137
-msgid "Order"
 msgstr ""
 
 #: .\Order\models.py:105
