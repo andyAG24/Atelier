@@ -1,15 +1,27 @@
 from django.db import models
+from django.contrib.auth.models import User
+from django.db.models.signals import post_save
+from django.dispatch import receiver
 from django.utils.translation import ugettext_lazy as _
 from django.contrib import admin
 from Service.models import Service
 
 class Employee(models.Model):
-    name = models.CharField(db_column='Name', 
-                            verbose_name=_('Name'),
-                            max_length=50)  # Field name made lowercase.
-    surname = models.CharField(db_column='Surname', 
-                               verbose_name=_('Surname'),
-                               max_length=255)  # Field name made lowercase.
+    class EmployeeType(models.TextChoices):
+        SEWER = 'SEWER', _('Sewer')
+        MANAGER = 'MANAGER', _('Manager')
+        UNDEFINED = 'UNDEFINED', _('Undefined')
+
+    id = models.OneToOneField(User, 
+                              models.DO_NOTHING, 
+                              db_column='id', 
+                              verbose_name=_('User'),
+                              primary_key=True)
+    employee_type = models.CharField(db_column='Employee type', 
+                                     verbose_name=_('Employee type'),
+                                     max_length=9, 
+                                     choices=EmployeeType.choices,
+                                     default=EmployeeType.UNDEFINED)  # Field name made lowercase. Field renamed to remove unsuitable characters.
     phone = models.CharField(db_column='Phone', 
                              verbose_name=_('Phone'),
                              max_length=255)  # Field name made lowercase.
@@ -17,7 +29,6 @@ class Employee(models.Model):
                                   verbose_name=_('Work XP'),
                                   blank=True, 
                                   null=True)  # Field name made lowercase. Field renamed to remove unsuitable characters.
-    services = models.ManyToManyField(Service, through='EmployeeServices')
 
     class Meta:
         managed = False
@@ -26,7 +37,12 @@ class Employee(models.Model):
         verbose_name_plural = _('Employees')
 
     def __str__(self):
-        return '{0} {1}'.format(self.surname, self.name) 
+        if self.id.first_name and self.id.last_name: 
+            return '{0} {1}'.format(self.id.last_name, self.id.first_name)
+        elif self.id.last_name:
+            return '{0} ({1})'.format(self.id.last_name, self.id.username)
+        else:
+            return '{0}'.format(self.id.username) 
 
 class EmployeeServices(models.Model):
     id_employee = models.ForeignKey(Employee, 
@@ -38,7 +54,7 @@ class EmployeeServices(models.Model):
     id_service = models.ForeignKey(Service, 
                                    models.CASCADE, 
                                    db_column='id_Service', 
-                                   verbose_name=_('Service'),
+                                #    verbose_name=_('Service'),
                                    blank=True, 
                                    null=True)  # Field name made lowercase.
 

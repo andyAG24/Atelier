@@ -5,9 +5,8 @@ class MaterialCategory(models.Model):
     name = models.CharField(db_column='Name', 
                             verbose_name=_('Name'),
                             max_length=50)  # Field name made lowercase.
-    comment = models.CharField(db_column='Comment', 
+    comment = models.TextField(db_column='Comment', 
                                verbose_name=_('Comment'),
-                               max_length=255, 
                                blank=True, 
                                null=True)  # Field name made lowercase.
 
@@ -15,7 +14,7 @@ class MaterialCategory(models.Model):
         managed = False
         db_table = 'material category'
         verbose_name = _('Material category')
-        verbose_name_plural = _('Material categories')
+        verbose_name_plural = _('Materials categories')
 
     def __str__(self):
         return self.name

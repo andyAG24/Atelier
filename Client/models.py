@@ -2,12 +2,12 @@ from django.db import models
 from django.utils.translation import ugettext_lazy as _
 
 class Client(models.Model):
-    name = models.CharField(db_column='Name', 
-                            verbose_name=_('Name'),
-                            max_length=50)  # Field name made lowercase.
-    surname = models.CharField(db_column='Surname', 
-                               verbose_name=_('Surname'),
-                               max_length=255)  # Field name made lowercase.
+    first_name = models.CharField(db_column='First name', 
+                                  verbose_name=_('First name'),
+                                  max_length=50)  # Field name made lowercase. Field renamed to remove unsuitable characters.
+    last_name = models.CharField(db_column='Last name', 
+                                 verbose_name=_('Last name'),
+                                 max_length=255)  # Field name made lowercase. Field renamed to remove unsuitable characters.
     phone = models.CharField(db_column='Phone',
                              verbose_name=_('Phone'),
                              max_length=255)  # Field name made lowercase.
@@ -63,4 +63,4 @@ class Client(models.Model):
         verbose_name_plural = _('Clients')
 
     def __str__(self):
-        return '{0} {1}'.format(self.surname, self.name) 
+        return '{0} {1}'.format(self.last_name, self.first_name) 

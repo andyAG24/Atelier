@@ -75,8 +75,8 @@ class AuthUserUserPermissions(models.Model):
 
 
 class Client(models.Model):
-    name = models.CharField(db_column='Name', max_length=50)  # Field name made lowercase.
-    surname = models.CharField(db_column='Surname', max_length=255)  # Field name made lowercase.
+    first_name = models.CharField(db_column='First name', max_length=50)  # Field name made lowercase. Field renamed to remove unsuitable characters.
+    last_name = models.CharField(db_column='Last name', max_length=255)  # Field name made lowercase. Field renamed to remove unsuitable characters.
     phone = models.CharField(db_column='Phone', max_length=255)  # Field name made lowercase.
     height = models.IntegerField(db_column='Height', blank=True, null=True)  # Field name made lowercase.
     chest_girth = models.IntegerField(db_column='Chest girth', blank=True, null=True)  # Field name made lowercase. Field renamed to remove unsuitable characters.
@@ -140,11 +140,10 @@ class DjangoSession(models.Model):
 
 
 class Employee(models.Model):
-    name = models.CharField(db_column='Name', max_length=50)  # Field name made lowercase.
-    surname = models.CharField(db_column='Surname', max_length=255)  # Field name made lowercase.
+    id = models.OneToOneField(AuthUser, models.DO_NOTHING, db_column='id', primary_key=True)
+    employee_type = models.CharField(db_column='Employee type', max_length=9)  # Field name made lowercase. Field renamed to remove unsuitable characters.
     phone = models.CharField(db_column='Phone', max_length=255)  # Field name made lowercase.
     work_xp = models.IntegerField(db_column='Work XP', blank=True, null=True)  # Field name made lowercase. Field renamed to remove unsuitable characters.
-    services = models.CharField(db_column='Services', max_length=255, blank=True, null=True)  # Field name made lowercase.
 
     class Meta:
         managed = False
@@ -160,11 +159,22 @@ class EmployeeServices(models.Model):
         db_table = 'employee services'
 
 
+class Fitting(models.Model):
+    index_number = models.IntegerField(db_column='Index number', blank=True, null=True)  # Field name made lowercase. Field renamed to remove unsuitable characters.
+    date = models.DateTimeField(db_column='Date', blank=True, null=True)  # Field name made lowercase.
+    status = models.CharField(db_column='Status', max_length=255, blank=True, null=True)  # Field name made lowercase.
+    id_order = models.ForeignKey('Order', models.DO_NOTHING, db_column='id_Order', blank=True, null=True)  # Field name made lowercase.
+
+    class Meta:
+        managed = False
+        db_table = 'fitting'
+
+
 class Material(models.Model):
     name = models.CharField(db_column='Name', max_length=50)  # Field name made lowercase.
+    vendor_code = models.CharField(db_column='Vendor code', max_length=45, blank=True, null=True)  # Field name made lowercase. Field renamed to remove unsuitable characters.
     id_category = models.ForeignKey('MaterialCategory', models.DO_NOTHING, db_column='id_Category', blank=True, null=True)  # Field name made lowercase.
-    price = models.DecimalField(db_column='Price', max_digits=19, decimal_places=2)  # Field name made lowercase.
-    comment = models.CharField(db_column='Comment', max_length=255, blank=True, null=True)  # Field name made lowercase.
+    comment = models.TextField(db_column='Comment', blank=True, null=True)  # Field name made lowercase.
     balance = models.IntegerField(db_column='Balance', blank=True, null=True)  # Field name made lowercase.
     color = models.CharField(db_column='Color', max_length=255, blank=True, null=True)  # Field name made lowercase.
 
@@ -175,23 +185,36 @@ class Material(models.Model):
 
 class MaterialCategory(models.Model):
     name = models.CharField(db_column='Name', max_length=50)  # Field name made lowercase.
-    comment = models.CharField(db_column='Comment', max_length=255, blank=True, null=True)  # Field name made lowercase.
+    comment = models.TextField(db_column='Comment', blank=True, null=True)  # Field name made lowercase.
 
     class Meta:
         managed = False
         db_table = 'material category'
 
 
+class MaterialPrice(models.Model):
+    price = models.DecimalField(db_column='Price', max_digits=19, decimal_places=2, blank=True, null=True)  # Field name made lowercase.
+    modification_date = models.DateTimeField(db_column='Modification date', blank=True, null=True)  # Field name made lowercase. Field renamed to remove unsuitable characters.
+    id_material = models.ForeignKey(Material, models.DO_NOTHING, db_column='id_Material', blank=True, null=True)  # Field name made lowercase.
+
+    class Meta:
+        managed = False
+        db_table = 'material price'
+
+
 class Order(models.Model):
-    status = models.CharField(db_column='Status', max_length=255, blank=True, null=True)  # Field name made lowercase.
+    status = models.CharField(db_column='Status', max_length=20)  # Field name made lowercase.
+    payment_status = models.CharField(db_column='Payment status', max_length=15, blank=True, null=True)  # Field name made lowercase. Field renamed to remove unsuitable characters.
+    prepayment = models.DecimalField(db_column='Prepayment', max_digits=19, decimal_places=2, blank=True, null=True)  # Field name made lowercase.
     cost = models.DecimalField(db_column='Cost', max_digits=19, decimal_places=2, blank=True, null=True)  # Field name made lowercase.
     start_date = models.DateTimeField(db_column='Start date', blank=True, null=True)  # Field name made lowercase. Field renamed to remove unsuitable characters.
     end_date = models.DateTimeField(db_column='End date', blank=True, null=True)  # Field name made lowercase. Field renamed to remove unsuitable characters.
     id_client = models.ForeignKey(Client, models.DO_NOTHING, db_column='id_Client', blank=True, null=True)  # Field name made lowercase.
     id_employee = models.ForeignKey(Employee, models.DO_NOTHING, db_column='id_Employee', blank=True, null=True)  # Field name made lowercase.
-    lead_time = models.IntegerField(db_column='Lead time', blank=True, null=True)  # Field name made lowercase. Field renamed to remove unsuitable characters.
-    priority = models.IntegerField(db_column='Priority', blank=True, null=True)  # Field name made lowercase.
-    comment = models.CharField(db_column='Comment', max_length=255, blank=True, null=True)  # Field name made lowercase.
+    labour_intensity = models.CharField(db_column='Labour intensity', max_length=9)  # Field name made lowercase. Field renamed to remove unsuitable characters.
+    urgency = models.CharField(db_column='Urgency', max_length=9)  # Field name made lowercase.
+    comment = models.TextField(db_column='Comment', blank=True, null=True)  # Field name made lowercase.
+    id_service = models.ForeignKey('Service', models.DO_NOTHING, db_column='id_Service', blank=True, null=True)  # Field name made lowercase.
 
     class Meta:
         managed = False
@@ -201,26 +224,27 @@ class Order(models.Model):
 class OrderMaterials(models.Model):
     id_order = models.ForeignKey(Order, models.DO_NOTHING, db_column='id_Order', blank=True, null=True)  # Field name made lowercase.
     id_material = models.ForeignKey(Material, models.DO_NOTHING, db_column='id_Material', blank=True, null=True)  # Field name made lowercase.
+    material_quantity = models.IntegerField(db_column='Material quantity', blank=True, null=True)  # Field name made lowercase. Field renamed to remove unsuitable characters.
 
     class Meta:
         managed = False
         db_table = 'order materials'
 
 
-class OrderServices(models.Model):
-    id_order = models.ForeignKey(Order, models.DO_NOTHING, db_column='id_Order', blank=True, null=True)  # Field name made lowercase.
-    id_service = models.ForeignKey('Service', models.DO_NOTHING, db_column='id_Service', blank=True, null=True)  # Field name made lowercase.
-
-    class Meta:
-        managed = False
-        db_table = 'order services'
-
-
 class Service(models.Model):
     name = models.CharField(db_column='Name', max_length=50)  # Field name made lowercase.
-    price = models.DecimalField(db_column='Price', max_digits=19, decimal_places=2)  # Field name made lowercase.
-    comment = models.CharField(db_column='Comment', max_length=255, blank=True, null=True)  # Field name made lowercase.
+    comment = models.TextField(db_column='Comment', blank=True, null=True)  # Field name made lowercase.
 
     class Meta:
         managed = False
         db_table = 'service'
+
+
+class ServicePrice(models.Model):
+    price = models.DecimalField(db_column='Price', max_digits=19, decimal_places=2, blank=True, null=True)  # Field name made lowercase.
+    modification_date = models.DateTimeField(db_column='Modification date', blank=True, null=True)  # Field name made lowercase. Field renamed to remove unsuitable characters.
+    id_service = models.ForeignKey(Service, models.DO_NOTHING, db_column='id_Service', blank=True, null=True)  # Field name made lowercase.
+
+    class Meta:
+        managed = False
+        db_table = 'service price'

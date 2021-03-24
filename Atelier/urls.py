@@ -21,4 +21,7 @@ from .views import mainpage_view
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', mainpage_view, name='main'),
+
+    path('login/', mainpage_view, name='login'),
+    path('logout/', mainpage_view, name='logout'),
 ]

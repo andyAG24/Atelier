@@ -6,19 +6,19 @@ class Material(models.Model):
     name = models.CharField(db_column='Name', 
                             verbose_name=_('Name'),
                             max_length=50)  # Field name made lowercase.
+    vendor_code = models.CharField(db_column='Vendor code', 
+                                   verbose_name=_('Vendor code'),
+                                   max_length=45, 
+                                   blank=True, 
+                                   null=True)  # Field name made lowercase. Field renamed to remove unsuitable characters.
     id_category = models.ForeignKey(MaterialCategory, 
                                     models.DO_NOTHING, 
                                     db_column='id_Category', 
                                     verbose_name=_('Category'), 
                                     blank=True, 
                                     null=True)  # Field name made lowercase.
-    price = models.DecimalField(db_column='Price', 
-                                verbose_name=_('Price (per meter)'), 
-                                max_digits=19, 
-                                decimal_places=2)  # Field name made lowercase.
-    comment = models.CharField(db_column='Comment',
+    comment = models.TextField(db_column='Comment',
                                verbose_name=_('Comment'),  
-                               max_length=255, 
                                blank=True, 
                                null=True)  # Field name made lowercase.
     balance = models.IntegerField(db_column='Balance', 
@@ -38,4 +38,4 @@ class Material(models.Model):
         verbose_name_plural = _('Materials')
 
     def __str__(self):
-        return _('%s %s, %s RUB (balance: %s m)') % (self.name, self.color, self.price, self.balance)
+        return _('%s %s (balance: %s m)') % (self.name, self.color, self.balance)

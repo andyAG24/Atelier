@@ -25,7 +25,7 @@ SECRET_KEY = 'zjxiiuvr19=n_y6a6=k(kj&j38@-^d+_$fg@w!ggp0)!d_vdz8'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['localhost', '128.0.0.1', '192.168.0.86', '188.116.190.45']
+ALLOWED_HOSTS = ['localhost', '127.0.0.1', '192.168.0.86', '188.116.190.45']
 
 
 # Application definition
@@ -39,10 +39,13 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'Client',
     'Employee',
-    'Service',
+    'Fitting',
     'Material',
     'MaterialCategory',
-    'Order'
+    'MaterialPrice',
+    'Order',
+    'Service',
+    'ServicePrice',
 ]
 
 MIDDLEWARE = [
@@ -60,7 +63,7 @@ ROOT_URLCONF = 'Atelier.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [ 
+        'DIRS': [
             'templates',
         ],
         'APP_DIRS': True,
@@ -86,17 +89,17 @@ DATABASES = {
     #     'ENGINE': 'django.db.backends.sqlite3',
     #     'NAME': BASE_DIR / 'db.sqlite3',
     # }
-    'default': {  
-        'ENGINE': 'django.db.backends.mysql',  
-        'NAME': 'Atelier-v1',  
-        'USER':'root',  
-        'PASSWORD': '',  
-        'HOST':'localhost',  
+    'default': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'Atelier-v2',
+        'USER':'root',
+        'PASSWORD': '',
+        'HOST':'localhost',
         'PORT':'3306',
         'OPTIONS': {
             'sql_mode': 'traditional'
         }
-    } 
+    }
 }
 
 
@@ -135,16 +138,20 @@ LOCALE_PATHS = (
     os.path.join(BASE_DIR, 'locale'),
 )
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Etc/GMT-3'
 
 USE_I18N = True
 
 USE_L10N = True
 
-USE_TZ = True
+USE_TZ = False
 
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
 STATIC_URL = '/static/'
+
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, "static"),
+]
