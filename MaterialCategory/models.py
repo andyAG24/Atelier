@@ -4,11 +4,11 @@ from django.utils.translation import ugettext_lazy as _
 class MaterialCategory(models.Model):
     name = models.CharField(db_column='Name', 
                             verbose_name=_('Name'),
-                            max_length=50)  # Field name made lowercase.
+                            max_length=50)
     comment = models.TextField(db_column='Comment', 
                                verbose_name=_('Comment'),
                                blank=True, 
-                               null=True)  # Field name made lowercase.
+                               null=True)
 
     class Meta:
         managed = False

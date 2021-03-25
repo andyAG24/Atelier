@@ -1,15 +1,14 @@
 from django.db import models
 from django.utils.translation import ugettext_lazy as _
-from django.contrib import admin
 
 class Service(models.Model):
-    name = models.CharField(db_column='Name', 
+    name = models.CharField(db_column='Name',
                             verbose_name=_('Name'),
-                            max_length=50)  # Field name made lowercase.
-    comment = models.TextField(db_column='Comment', 
+                            max_length=50)
+    comment = models.TextField(db_column='Comment',
                                blank=True,
                                verbose_name=_('Commentary'),
-                               null=True)  # Field name made lowercase.
+                               null=True)
 
     class Meta:
         managed = False
@@ -18,4 +17,4 @@ class Service(models.Model):
         verbose_name_plural = _('Services')
 
     def __str__(self):
-        return self.name
+        return f"{self.name}"
