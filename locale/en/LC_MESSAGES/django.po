@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-03-24 16:13+0300\n"
+"POT-Creation-Date: 2021-04-02 18:44+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,7 +18,11 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: .\Client\apps.py:6 .\Client\models.py:62 .\Order\models.py:75
+#: .\Atelier\decorators.py:23
+msgid "You are not allowed to view this page."
+msgstr ""
+
+#: .\Client\apps.py:6 .\Client\models.py:62 .\Order\models.py:77
 msgid "Client"
 msgstr ""
 
@@ -78,12 +82,12 @@ msgstr ""
 msgid "Length waist-floor"
 msgstr ""
 
-#: .\Client\models.py:63
+#: .\Client\models.py:63 .\templates\header.html:15
 msgid "Clients"
 msgstr ""
 
-#: .\Employee\apps.py:6 .\Employee\models.py:36 .\Employee\models.py:49
-#: .\Order\models.py:81
+#: .\Employee\apps.py:6 .\Employee\models.py:36 .\Employee\models.py:59
+#: .\Order\models.py:83
 msgid "Employee"
 msgstr ""
 
@@ -111,16 +115,16 @@ msgstr ""
 msgid "Work XP"
 msgstr ""
 
-#: .\Employee\models.py:37
+#: .\Employee\models.py:37 .\templates\header.html:20
 msgid "Employees"
 msgstr ""
 
-#: .\Employee\models.py:62 .\Employee\models.py:63
+#: .\Employee\models.py:72 .\Employee\models.py:73
 msgid "Employee services"
 msgstr ""
 
-#: .\Fitting\models.py:9 .\Order\apps.py:6 .\Order\models.py:103
-#: .\Order\models.py:113
+#: .\Fitting\models.py:9 .\Order\apps.py:6 .\Order\models.py:105
+#: .\Order\models.py:115
 msgid "Order"
 msgstr ""
 
@@ -132,7 +136,7 @@ msgstr ""
 msgid "Date"
 msgstr ""
 
-#: .\Fitting\models.py:21 .\Order\models.py:42
+#: .\Fitting\models.py:21 .\Order\models.py:44
 msgid "Status"
 msgstr ""
 
@@ -148,11 +152,11 @@ msgstr ""
 msgid "Material category"
 msgstr ""
 
-#: .\MaterialCategory\models.py:6 .\Material\models.py:7 .\Service\models.py:7
+#: .\MaterialCategory\models.py:6 .\Material\models.py:7 .\Service\models.py:6
 msgid "Name"
 msgstr ""
 
-#: .\MaterialCategory\models.py:9 .\Material\models.py:21 .\Order\models.py:96
+#: .\MaterialCategory\models.py:9 .\Material\models.py:21 .\Order\models.py:98
 msgid "Comment"
 msgstr ""
 
@@ -161,7 +165,7 @@ msgid "Materials categories"
 msgstr ""
 
 #: .\MaterialPrice\models.py:9 .\Material\apps.py:6 .\Material\models.py:37
-#: .\Order\models.py:119
+#: .\Order\models.py:121
 msgid "Material"
 msgstr ""
 
@@ -169,7 +173,7 @@ msgstr ""
 msgid "Price (per meter)"
 msgstr ""
 
-#: .\MaterialPrice\models.py:19 .\ServicePrice\models.py:19
+#: .\MaterialPrice\models.py:19 .\ServicePrice\models.py:21
 msgid "Modification date"
 msgstr ""
 
@@ -197,7 +201,7 @@ msgstr ""
 msgid "Color"
 msgstr ""
 
-#: .\Material\models.py:38
+#: .\Material\models.py:38 .\templates\header.html:28
 msgid "Materials"
 msgstr ""
 
@@ -206,143 +210,197 @@ msgstr ""
 msgid "%s %s (balance: %s m)"
 msgstr ""
 
-#: .\Order\models.py:11
+#: .\Order\models.py:13
 msgid "Created"
 msgstr ""
 
-#: .\Order\models.py:12
+#: .\Order\models.py:14
 msgid "Cancelled"
 msgstr ""
 
-#: .\Order\models.py:13
+#: .\Order\models.py:15
 msgid "In progress"
 msgstr ""
 
-#: .\Order\models.py:14
+#: .\Order\models.py:16
 msgid "Completed"
 msgstr ""
 
-#: .\Order\models.py:15
+#: .\Order\models.py:17
 msgid "Passed to the client"
 msgstr ""
 
-#: .\Order\models.py:16
+#: .\Order\models.py:18
 msgid "Returned for rework"
 msgstr ""
 
-#: .\Order\models.py:19
+#: .\Order\models.py:21
 msgid "Low urgency"
 msgstr ""
 
-#: .\Order\models.py:20
+#: .\Order\models.py:22
 msgid "Medium urgency"
 msgstr ""
 
-#: .\Order\models.py:21
+#: .\Order\models.py:23
 msgid "High urgency"
 msgstr ""
 
-#: .\Order\models.py:22
+#: .\Order\models.py:24
 msgid "Very high urgency"
 msgstr ""
 
-#: .\Order\models.py:25
+#: .\Order\models.py:27
 msgid "1-3 days"
 msgstr ""
 
-#: .\Order\models.py:26
+#: .\Order\models.py:28
 msgid "4-6 days"
 msgstr ""
 
-#: .\Order\models.py:27
+#: .\Order\models.py:29
 msgid "7-9 days"
 msgstr ""
 
-#: .\Order\models.py:28
+#: .\Order\models.py:30
 msgid "10+ days"
 msgstr ""
 
-#: .\Order\models.py:31
+#: .\Order\models.py:33
 msgid "Pending payment"
 msgstr ""
 
-#: .\Order\models.py:32
+#: .\Order\models.py:34
 msgid "Prepayment made"
 msgstr ""
 
-#: .\Order\models.py:33
+#: .\Order\models.py:35
 msgid "Paid"
 msgstr ""
 
-#: .\Order\models.py:38 .\ServicePrice\models.py:9
+#: .\Order\models.py:40 .\ServicePrice\models.py:11 .\Service\models.py:16
 msgid "Service"
 msgstr ""
 
-#: .\Order\models.py:47
+#: .\Order\models.py:49
 msgid "Payment status"
 msgstr ""
 
-#: .\Order\models.py:53
+#: .\Order\models.py:55
 msgid "Prepayment"
 msgstr ""
 
-#: .\Order\models.py:59
+#: .\Order\models.py:61
 msgid "Cost"
 msgstr ""
 
-#: .\Order\models.py:65
+#: .\Order\models.py:67
 msgid "Start date"
 msgstr ""
 
-#: .\Order\models.py:69
+#: .\Order\models.py:71
 msgid "End date"
 msgstr ""
 
-#: .\Order\models.py:85
+#: .\Order\models.py:87
 msgid "Labour intensity"
 msgstr ""
 
-#: .\Order\models.py:90
+#: .\Order\models.py:92
 msgid "Urgency"
 msgstr ""
 
-#: .\Order\models.py:104
+#: .\Order\models.py:106 .\templates\header.html:44
 msgid "Orders"
 msgstr ""
 
-#: .\Order\models.py:107
+#: .\Order\models.py:109
 #, python-format
 msgid "%s, Order #%s, created on: %s, sum: %s"
 msgstr ""
 
-#: .\Order\models.py:123
+#: .\Order\models.py:125
 msgid "Material quantity"
 msgstr ""
 
-#: .\Order\models.py:130
+#: .\Order\models.py:132
 msgid "Order material"
 msgstr ""
 
-#: .\Order\models.py:131
+#: .\Order\models.py:133
 msgid "Order materials"
 msgstr ""
 
-#: .\ServicePrice\models.py:13
+#: .\ServicePrice\models.py:15
 msgid "Price"
 msgstr ""
 
-#: .\ServicePrice\models.py:26
+#: .\ServicePrice\models.py:28
 msgid "Service price"
 msgstr ""
 
-#: .\ServicePrice\models.py:27
+#: .\ServicePrice\models.py:29
 msgid "Services prices"
 msgstr ""
 
-#: .\Service\models.py:11
+#: .\Service\models.py:10
 msgid "Commentary"
 msgstr ""
 
-#: .\Service\models.py:18
+#: .\Service\models.py:17 .\templates\header.html:39
 msgid "Services"
+msgstr ""
+
+#: .\templates\header.html:3
+msgid "Atelier"
+msgstr ""
+
+#: .\templates\header.html:11
+msgid "Main"
+msgstr ""
+
+#: .\templates\header.html:31
+msgid "View materials"
+msgstr ""
+
+#: .\templates\header.html:32
+msgid "Categories"
+msgstr ""
+
+#: .\templates\header.html:54
+msgid "Hello"
+msgstr ""
+
+#: .\templates\header.html:60
+msgid "Sign out"
+msgstr ""
+
+#: .\templates\header.html:67 .\templates\registration\login.html:33
+msgid "Sign in"
+msgstr ""
+
+#: .\templates\registration\login.html:17
+msgid "Authorization"
+msgstr ""
+
+#: .\templates\registration\login.html:22
+msgid ""
+"Пожалуйста, введите правильные имя пользователя и пароль. Оба поля могут "
+"быть чувствительны к регистру."
+msgstr ""
+
+#: .\templates\registration\login.html:26
+msgid "Username"
+msgstr ""
+
+#: .\templates\registration\login.html:27
+msgid "Enter username"
+msgstr ""
+
+#: .\templates\registration\login.html:30
+msgid "Password"
+msgstr ""
+
+#: .\templates\registration\login.html:31
+msgid "Enter password"
 msgstr ""

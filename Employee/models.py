@@ -36,6 +36,14 @@ class Employee(models.Model):
         verbose_name = _('Employee')
         verbose_name_plural = _('Employees')
 
+    def is_manager(self):
+        groups = self.id.groups.all()
+        return groups.filter(name='Managers').exists()
+
+    def is_sewer(self):
+        groups = self.id.groups.all()
+        return groups.filter(name='Sewers').exists()
+
     def __str__(self):
         if self.id.first_name and self.id.last_name:
             return '{0} {1}'.format(self.id.last_name, self.id.first_name)

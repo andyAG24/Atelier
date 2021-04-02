@@ -1,5 +1,6 @@
+{% load i18n %}
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand" href="#">Navbar</a>
+    <a class="navbar-brand" href="/">{% trans "Atelier" %}</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
@@ -7,41 +8,83 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
             <li class="nav-item active">
-                <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                <a class="nav-link" href="/">{% trans "Main" %}<span class="sr-only">(current)</span></a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">Link</a>
-            </li>
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Dropdown
-                </a>
-                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="#">Action</a>
-                    <a class="dropdown-item" href="#">Another action</a>
-                    <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="#">Something else here</a>
-                </div>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link disabled" href="#">Disabled</a>
-            </li>
+
+            {% if user_group == 'Managers' %}
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">
+                        {% trans "Clients" %}
+                        <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">
+                        {% trans "Employees" %}
+                        <span class="sr-only">(current)</span></a>
+                </li>
+                <!-- <li class="nav-item">
+                    <a class="nav-link" href="#">Link</a>
+                </li> -->
+                <li class="nav-item dropdown active">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    {% trans "Materials" %}
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="#">{% trans "View materials" %}</a>
+                        <a class="dropdown-item" href="#">{% trans "Categories" %}</a>
+                        <!-- <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="#">Something else here</a> -->
+                    </div>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">
+                        {% trans "Services" %}
+                        <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">
+                        {% trans "Orders" %}
+                        <span class="sr-only">(current)</span></a>
+                </li>
+            {% endif %}
+
+            {% if user_group == 'Sewers' %}
+                <li class="nav-item dropdown active">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    {% trans "Materials" %}
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="#">{% trans "View materials" %}</a>
+                        <a class="dropdown-item" href="#">{% trans "Categories" %}</a>
+                        <!-- <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="#">Something else here</a> -->
+                    </div>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">
+                        {% trans "Services" %}
+                        <span class="sr-only">(current)</span></a>
+                </li>
+            {% endif %}
+            
         </ul>
-        {% if user.is_authenticated and user.email %}
+        {% if user.is_authenticated %}
             <div>
                 <span class="align-middle">
-                    Привет, {{ user.get_full_name }}!
+                    {% trans "Hello" %}, {% if user.get_full_name != "" %} {{ user.get_full_name }} 
+                    {% else %} {{ user }}
+                    {% endif %}
                 </span>
                 <a class="btn btn-link ml-2 my-2 my-sm-0" role="button"
                 href="{% url 'logout' %}">
-                    Выйти
+                    {% trans "Sign out" %}
                 </a>
             </div>
         {% else %}
             <div>
                 <a class="btn btn-link" role="button"
-                href="{% url 'login' %}?next={{ request.path }}">
-                    Войти
+                href="{% url 'auth' %}">
+                    {% trans "Sign in" %}
                 </a>
             </div>
         {% endif %}

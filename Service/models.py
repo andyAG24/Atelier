@@ -13,7 +13,7 @@ class Service(models.Model):
     class Meta:
         managed = False
         db_table = 'service'
-        # verbose_name = _('Service')
+        verbose_name = _('Service')
         verbose_name_plural = _('Services')
 
     def __str__(self):
