@@ -31,9 +31,8 @@ def template(template):
         def call(request, *args, **kwargs):
             context = {}
             ret = view(request, context, *args, **kwargs)
-            if ret: 
-                return(ret)
+            if ret:
+                return ret
             return render(template, RequestContext(request, context))
         return call
     return wrapper
-

@@ -1,0 +1,68 @@
+{% extends 'base.html' %}
+{% load i18n %}
+
+{% block title %}{{ material.name }}, {{ material.color }}{% endblock %}
+
+{% block content %}
+<h1>{{ material.name }}, {{ material.color }}</h1>
+
+<table class="table mt-3">
+    <tbody>
+        <tr>
+            <th scope="row">{% trans "Name" %}</th>
+            <td>{{ material.name }}</td>
+        </tr>
+        <tr>
+            <th scope="row">{% trans "Category" %}</th>
+            <td>{{ material.id_category }}</td>
+        </tr>
+        <tr>
+            <th scope="row">{% trans "Color" %}</th>
+            <td>{{ material.color }}</td>
+        </tr>
+        <tr>
+            <th scope="row">{% trans "Vendor code" %}</th>
+            <td>{{ material.vendor_code }}</td>
+        </tr>
+        <tr>   
+            <th scope="row">{% trans "Balance (meters)" %}</th>
+            <td>{{ material.balance }}</td>
+        </tr>
+        <tr>
+            <th scope="row">{% trans "Price" %}</th>
+            <td>{{ material_price }}</td>
+        </tr>
+        {% if material.comment %}
+            <tr>
+                <th scope="row">{% trans "Comment" %}</th>
+                <td>{{ material.comment }}</td>
+            </tr>
+        {% endif %}
+    </tbody>
+</table>
+
+<h4>{% trans "Price change" %}</h4>
+<table class="table mt-3">
+    <thead class="thead-dark">
+        <tr>
+            <th scope="col">{% trans "Modification date" %}</th>
+            <th scope="col">{% trans "New price" %}</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% if material_prices %}
+            {% for price in material_prices %}
+                <tr>
+                    <td>{{ price.modification_date }}</td>
+                    <td>{{ price.price }}</td>
+                </tr>
+            {% endfor %}
+        {% else %}
+            <tr>
+                <td colspan="2" class="text-center font-italic">{% trans "There isn't price changes" %}</td>
+            </tr> 
+        {% endif %}
+    </tbody>
+</table>
+
+{% endblock %}

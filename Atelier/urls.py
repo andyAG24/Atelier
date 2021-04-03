@@ -25,4 +25,6 @@ urlpatterns = [
 
     path('accounts/', include('django.contrib.auth.urls')),
     path('auth/', redirect_to_auth, name='auth'),
+    path('orders/', include('Order.urls')),
+    path('materials/', include('Material.urls'))
 ]
