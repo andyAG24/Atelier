@@ -16,14 +16,18 @@
     
     <title>{% block title %}{% endblock %}</title>
 </head>
-<body>
-    {% include 'header.html' %}
+<body class="d-flex flex-column min-vh-100">
+    <div class="flex-grow-0 flex-shrink-0">
+        {% include 'header.html' %}
+    </div>
 
-    <div class="m-3">
+    <div class="flex-grow-1 flex-shrink-0 m-3">
         {% block content %}
         {% endblock %}
     </div>
 
-    {% include 'footer.html' %}
+    <div class="flex-grow-0 flex-shrink-0">
+        {% include 'footer.html' %}
+    </div>
 </body>
 </html>

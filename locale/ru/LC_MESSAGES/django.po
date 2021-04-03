@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-04-03 04:17+0300\n"
+"POT-Creation-Date: 2021-04-03 13:33+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -101,7 +101,7 @@ msgstr "Швея"
 msgid "Manager"
 msgstr "Менеджер"
 
-#: .\Employee\models.py:13 .\MaterialPrice\views.py:7
+#: .\Employee\models.py:13 .\MaterialPrice\views.py:8
 msgid "Undefined"
 msgstr "Не определено"
 
@@ -155,13 +155,15 @@ msgid "Material category"
 msgstr "Категория материала"
 
 #: .\MaterialCategory\models.py:6 .\Material\models.py:7 .\Service\models.py:6
+#: .\templates\material\all_categories.html:11
 #: .\templates\material\all_materials.html:11
+#: .\templates\material\view_category.html:12
 #: .\templates\material\view_material.html:12
 msgid "Name"
 msgstr "Название"
 
 #: .\MaterialCategory\models.py:9 .\Material\models.py:21 .\Order\models.py:98
-#: .\templates\material\view_material.html:37
+#: .\templates\material\view_material.html:39
 msgid "Comment"
 msgstr "Комментарий"
 
@@ -179,7 +181,7 @@ msgid "Price (per meter)"
 msgstr "Цена (п. м)"
 
 #: .\MaterialPrice\models.py:19 .\ServicePrice\models.py:21
-#: .\templates\material\view_material.html:48
+#: .\templates\material\view_material.html:50
 msgid "Modification date"
 msgstr "Дата изменения"
 
@@ -192,7 +194,8 @@ msgid "Materials prices"
 msgstr "Цены материалов"
 
 #: .\Material\models.py:10 .\templates\material\all_materials.html:14
-#: .\templates\material\view_material.html:24
+#: .\templates\material\view_category.html:14
+#: .\templates\material\view_material.html:26
 msgid "Vendor code"
 msgstr "Артикул"
 
@@ -202,12 +205,13 @@ msgid "Category"
 msgstr "Категория"
 
 #: .\Material\models.py:25 .\templates\material\all_materials.html:15
-#: .\templates\material\view_material.html:28
-msgid "Balance (meters)"
-msgstr "Остаток (м)"
+#: .\templates\material\view_material.html:30
+msgid "Balance (meters or pieces)"
+msgstr "Остаток (м или шт.)"
 
 #: .\Material\models.py:29 .\templates\material\all_materials.html:13
-#: .\templates\material\view_material.html:20
+#: .\templates\material\view_category.html:13
+#: .\templates\material\view_material.html:22
 msgid "Color"
 msgstr "Цвет"
 
@@ -343,7 +347,8 @@ msgid "Order materials"
 msgstr "Материалы заказа"
 
 #: .\ServicePrice\models.py:15 .\templates\material\all_materials.html:16
-#: .\templates\material\view_material.html:32
+#: .\templates\material\view_category.html:15
+#: .\templates\material\view_material.html:34
 msgid "Price"
 msgstr "Цена"
 
@@ -391,20 +396,37 @@ msgstr "Выйти"
 msgid "Sign in"
 msgstr "Войти"
 
+#: .\templates\material\all_categories.html:4
+#: .\templates\material\all_categories.html:7
+msgid "All materials categories"
+msgstr "Все категории материалов"
+
+#: .\templates\material\all_categories.html:12
+msgid "Quantity"
+msgstr "Количество"
+
 #: .\templates\material\all_materials.html:4
 #: .\templates\material\all_materials.html:7
 msgid "All materials"
 msgstr "Все материалы"
 
-#: .\templates\material\view_material.html:44
+#: .\templates\material\view_category.html:8
+msgid "Materials in category"
+msgstr "Материалы в категории"
+
+#: .\templates\material\view_category.html:32
+msgid "There are not any materials in the category"
+msgstr "В категории нет материалов"
+
+#: .\templates\material\view_material.html:46
 msgid "Price change"
 msgstr "Изменения цены"
 
-#: .\templates\material\view_material.html:49
+#: .\templates\material\view_material.html:51
 msgid "New price"
 msgstr "Новая цена"
 
-#: .\templates\material\view_material.html:62
+#: .\templates\material\view_material.html:64
 msgid "There isn't price changes"
 msgstr "Изменения цены отсутствуют"
 
@@ -433,6 +455,14 @@ msgstr "Пароль"
 #: .\templates\registration\login.html:31
 msgid "Enter password"
 msgstr "Введите пароль"
+
+#, fuzzy
+#~| msgid "Balance (meters or pieces)"
+#~ msgid "Balance (meters)"
+#~ msgstr "Остаток (м или шт.)"
+
+#~ msgid "All material categories"
+#~ msgstr "Все категории материалов"
 
 #~ msgid "Low"
 #~ msgstr "Низкий"

@@ -14,7 +14,9 @@
         </tr>
         <tr>
             <th scope="row">{% trans "Category" %}</th>
-            <td>{{ material.id_category }}</td>
+            <td>
+                <a href="{% url 'view_category' id=material.id_category.id %}">{{ material.id_category }}</a>
+            </td>
         </tr>
         <tr>
             <th scope="row">{% trans "Color" %}</th>
@@ -25,7 +27,7 @@
             <td>{{ material.vendor_code }}</td>
         </tr>
         <tr>   
-            <th scope="row">{% trans "Balance (meters)" %}</th>
+            <th scope="row">{% trans "Balance (meters or pieces)" %}</th>
             <td>{{ material.balance }}</td>
         </tr>
         <tr>

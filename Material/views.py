@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from MaterialPrice.views import get_current_price, get_price_history
 from .models import Material
+from MaterialCategory.models import MaterialCategory
 
 def all_materials(request):
     context = {}

@@ -22,7 +22,7 @@ class Material(models.Model):
                                blank=True,
                                null=True)
     balance = models.IntegerField(db_column='Balance',
-                                  verbose_name=_('Balance (meters)'),
+                                  verbose_name=_('Balance (meters or pieces)'),
                                   blank=True,
                                   null=True)
     color = models.CharField(db_column='Color',
