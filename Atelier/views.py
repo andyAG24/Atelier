@@ -13,5 +13,4 @@ def mainpage_view(request):
 
 @unauthenticated_user
 def redirect_to_auth(request):
-    print('kek')
     return render(request, 'registration/login.html')

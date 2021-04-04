@@ -5,22 +5,24 @@
 
 {% block content %}
 <h1>{% trans "All materials categories" %}</h1>
-<table class="table mt-3">
-    <thead class="thead-dark">
-        <tr>
-            <th scope="col">{% trans "Name" %}</th>
-            <th scope="col">{% trans "Quantity" %}</th>
-        </tr>
-    </thead>
-    <tbody>
-        {% for category in categories %}
+<div class="table-responsive mt-3">
+    <table class="table">
+        <thead class="thead-dark">
             <tr>
-                <th scope="row">
-                    <a href="{% url 'view_category' id=category.id %}">{{ category.name }}</a>
-                </th>
-                <td>{{ category.materials_count }}</td>
+                <th scope="col">{% trans "Name" %}</th>
+                <th scope="col">{% trans "Quantity" %}</th>
             </tr>
-        {% endfor %}
-    </tbody>
-</table>
+        </thead>
+        <tbody>
+            {% for category in categories %}
+                <tr>
+                    <th scope="row">
+                        <a href="{% url 'view_category' id=category.id %}">{{ category.name }}</a>
+                    </th>
+                    <td>{{ category.materials_count }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
 {% endblock %}

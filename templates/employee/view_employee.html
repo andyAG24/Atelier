@@ -1,0 +1,60 @@
+{% extends 'base.html' %}
+{% load i18n %}
+
+{% block title %}{% trans "All employees" %}{% endblock %}
+
+{% block content %}
+{% if employee.id.last_name and employee.id.first_name %}
+    <h1>{{ employee.id.last_name }} {{ employee.id.first_name }}</h1>
+{% elif employee.id.last_name and not employee.id.first_name %}
+    <h1>{{ employee.id.last_name }} ({{ employee.id }})</h1>
+{% elif not employee.id.last_name and employee.id.first_name %}
+    <h1>{{ employee.id.first_name }} ({{ employee.id }})</h1>
+{% else %}
+    <h1>{{ employee.id }}</h1>
+{% endif %}
+<div class="table-responsive mt-3">
+    <table class="table">
+        <tbody>
+            <tr>
+                <th scope="row">{% trans "Last name" %}</th>
+                <td>{{ employee.id.last_name }}</td>
+            </tr>
+            <tr>
+                <th scope="row">{% trans "First name" %}</th>
+                <td>{{ employee.id.first_name }}</td>
+            </tr>
+            <tr>
+                <th scope="row">{% trans "Username" %}</th>
+                <td>{{ employee.id }}</td>
+            </tr>
+            <tr>
+                <th scope="row">{% trans "Employee type" %}</th>
+                <td>{{ employee.employee_type }}</td>
+            </tr>
+            <tr>   
+                <th scope="row">{% trans "Services" %}</th>
+                <td>
+                    {% for service in employee_services %}
+                        {{ service.name }}
+                    {% endfor %}
+                </td>
+            </tr>
+            <tr>   
+                <th scope="row">{% trans "Phone" %}</th>
+                <td>{{ employee.phone }}</td>
+            </tr>
+            <tr>
+                <th scope="row">{% trans "Work experience (years)" %}</th>
+                <td>
+                    {% if employee.work_xp %}
+                        {{ employee.work_xp }}
+                    {% else %}
+                        {% trans "No work experience" %}
+                    {% endif %}
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+{% endblock %}

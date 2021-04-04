@@ -5,32 +5,34 @@
 
 {% block content %}
 <h1>{% trans "All materials" %}</h1>
-<table class="table mt-3">
-    <thead class="thead-dark">
-        <tr>
-            <th scope="col">{% trans "Name" %}</th>
-            <th scope="col">{% trans "Category" %}</th>
-            <th scope="col">{% trans "Color" %}</th>
-            <th scope="col">{% trans "Vendor code" %}</th>
-            <th scope="col">{% trans "Balance (meters or pieces)" %}</th>
-            <th scope="col">{% trans "Price" %}</th>
-        </tr>
-    </thead>
-    <tbody>
-        {% for item in materials %}
+<div class="table-responsive mt-3">
+    <table class="table">
+        <thead class="thead-dark">
             <tr>
-                <th scope="row">
-                    <a href="{% url 'view_material' id=item.material.id %}">{{ item.material.name }}</a>
-                </th>
-                <td>
-                    <a href="{% url 'view_category' id=item.material.id_category.id %}">{{ item.material.id_category }}</a>
-                </td>
-                <td>{{ item.material.color }}</td>
-                <td>{{ item.material.vendor_code }}</td>
-                <td>{{ item.material.balance }}</td>
-                <td>{{ item.material_price }}</td>
+                <th scope="col">{% trans "Name" %}</th>
+                <th scope="col">{% trans "Category" %}</th>
+                <th scope="col">{% trans "Color" %}</th>
+                <th scope="col">{% trans "Vendor code" %}</th>
+                <th scope="col">{% trans "Balance (meters or pieces)" %}</th>
+                <th scope="col">{% trans "Price" %}</th>
             </tr>
-        {% endfor %}
-    </tbody>
-</table>
+        </thead>
+        <tbody>
+            {% for item in materials %}
+                <tr>
+                    <th scope="row">
+                        <a href="{% url 'view_material' id=item.material.id %}">{{ item.material.name }}</a>
+                    </th>
+                    <td>
+                        <a href="{% url 'view_category' id=item.material.id_category.id %}">{{ item.material.id_category }}</a>
+                    </td>
+                    <td>{{ item.material.color }}</td>
+                    <td>{{ item.material.vendor_code }}</td>
+                    <td>{{ item.material.balance }}</td>
+                    <td>{{ item.material_price }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
 {% endblock %}

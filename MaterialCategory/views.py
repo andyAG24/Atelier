@@ -14,12 +14,12 @@ def get_categories():
     categories_list = []
     for category in categories:
         materials = Material.objects.filter(id_category=category.id)
-        kek = {
+        category_object = {
             'id': category.id,
             'name': category.name,
             'materials_count': materials.count()
         }
-        categories_list.append(kek)
+        categories_list.append(category_object)
     return categories_list
 
 def view_category(request, id):

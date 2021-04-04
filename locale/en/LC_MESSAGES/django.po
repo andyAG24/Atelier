@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-04-03 13:33+0300\n"
+"POT-Creation-Date: 2021-04-04 14:00+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -26,15 +26,19 @@ msgstr ""
 msgid "Client"
 msgstr ""
 
-#: .\Client\models.py:6
+#: .\Client\models.py:6 .\templates\employee\all_employees.html:13
+#: .\templates\employee\view_employee.html:24
 msgid "First name"
 msgstr ""
 
-#: .\Client\models.py:9
+#: .\Client\models.py:9 .\templates\employee\all_employees.html:12
+#: .\templates\employee\view_employee.html:20
 msgid "Last name"
 msgstr ""
 
 #: .\Client\models.py:12 .\Employee\models.py:26
+#: .\templates\employee\all_employees.html:17
+#: .\templates\employee\view_employee.html:44
 msgid "Phone"
 msgstr ""
 
@@ -82,7 +86,7 @@ msgstr ""
 msgid "Length waist-floor"
 msgstr ""
 
-#: .\Client\models.py:63 .\templates\header.html:17
+#: .\Client\models.py:63 .\templates\header.html:37
 msgid "Clients"
 msgstr ""
 
@@ -107,7 +111,8 @@ msgstr ""
 msgid "User"
 msgstr ""
 
-#: .\Employee\models.py:21
+#: .\Employee\models.py:21 .\templates\employee\all_employees.html:15
+#: .\templates\employee\view_employee.html:32
 msgid "Employee type"
 msgstr ""
 
@@ -115,7 +120,7 @@ msgstr ""
 msgid "Work XP"
 msgstr ""
 
-#: .\Employee\models.py:37 .\templates\header.html:22
+#: .\Employee\models.py:37 .\templates\header.html:42
 msgid "Employees"
 msgstr ""
 
@@ -153,9 +158,9 @@ msgid "Material category"
 msgstr ""
 
 #: .\MaterialCategory\models.py:6 .\Material\models.py:7 .\Service\models.py:6
-#: .\templates\material\all_categories.html:11
-#: .\templates\material\all_materials.html:11
-#: .\templates\material\view_category.html:12
+#: .\templates\material\all_categories.html:12
+#: .\templates\material\all_materials.html:12
+#: .\templates\material\view_category.html:13
 #: .\templates\material\view_material.html:12
 msgid "Name"
 msgstr ""
@@ -179,7 +184,7 @@ msgid "Price (per meter)"
 msgstr ""
 
 #: .\MaterialPrice\models.py:19 .\ServicePrice\models.py:21
-#: .\templates\material\view_material.html:50
+#: .\templates\material\view_material.html:52
 msgid "Modification date"
 msgstr ""
 
@@ -191,30 +196,29 @@ msgstr ""
 msgid "Materials prices"
 msgstr ""
 
-#: .\Material\models.py:10 .\templates\material\all_materials.html:14
-#: .\templates\material\view_category.html:14
+#: .\Material\models.py:10 .\templates\material\all_materials.html:15
+#: .\templates\material\view_category.html:15
 #: .\templates\material\view_material.html:26
 msgid "Vendor code"
 msgstr ""
 
-#: .\Material\models.py:17 .\templates\material\all_materials.html:12
+#: .\Material\models.py:17 .\templates\material\all_materials.html:13
 #: .\templates\material\view_material.html:16
 msgid "Category"
 msgstr ""
 
-#: .\Material\models.py:25 .\templates\material\all_materials.html:15
+#: .\Material\models.py:25 .\templates\material\all_materials.html:16
 #: .\templates\material\view_material.html:30
 msgid "Balance (meters or pieces)"
 msgstr ""
 
-#: .\Material\models.py:29 .\templates\material\all_materials.html:13
-#: .\templates\material\view_category.html:13
+#: .\Material\models.py:29 .\templates\material\all_materials.html:14
+#: .\templates\material\view_category.html:14
 #: .\templates\material\view_material.html:22
 msgid "Color"
 msgstr ""
 
-#: .\Material\models.py:38 .\templates\header.html:30
-#: .\templates\header.html:59
+#: .\Material\models.py:38 .\templates\header.html:23
 msgid "Materials"
 msgstr ""
 
@@ -323,7 +327,7 @@ msgstr ""
 msgid "Urgency"
 msgstr ""
 
-#: .\Order\models.py:106 .\templates\header.html:46 .\templates\header.html:54
+#: .\Order\models.py:106 .\templates\header.html:18
 msgid "Orders"
 msgstr ""
 
@@ -344,8 +348,8 @@ msgstr ""
 msgid "Order materials"
 msgstr ""
 
-#: .\ServicePrice\models.py:15 .\templates\material\all_materials.html:16
-#: .\templates\material\view_category.html:15
+#: .\ServicePrice\models.py:15 .\templates\material\all_materials.html:17
+#: .\templates\material\view_category.html:16
 #: .\templates\material\view_material.html:34
 msgid "Price"
 msgstr ""
@@ -362,8 +366,34 @@ msgstr ""
 msgid "Commentary"
 msgstr ""
 
-#: .\Service\models.py:17 .\templates\header.html:41
+#: .\Service\models.py:17 .\templates\employee\all_employees.html:16
+#: .\templates\employee\view_employee.html:36 .\templates\header.html:50
 msgid "Services"
+msgstr ""
+
+#: .\templates\employee\all_employees.html:4
+#: .\templates\employee\all_employees.html:7
+#: .\templates\employee\view_employee.html:4
+msgid "All employees"
+msgstr ""
+
+#: .\templates\employee\all_employees.html:14
+#: .\templates\employee\view_employee.html:28
+#: .\templates\registration\login.html:26
+msgid "Username"
+msgstr ""
+
+#: .\templates\employee\all_employees.html:18
+msgid "Work experience"
+msgstr ""
+
+#: .\templates\employee\all_employees.html:40
+#: .\templates\employee\view_employee.html:53
+msgid "No work experience"
+msgstr ""
+
+#: .\templates\employee\view_employee.html:48
+msgid "Work experience (years)"
 msgstr ""
 
 #: .\templates\header.html:3
@@ -374,23 +404,23 @@ msgstr ""
 msgid "Main"
 msgstr ""
 
-#: .\templates\header.html:33 .\templates\header.html:62
+#: .\templates\header.html:26
 msgid "View materials"
 msgstr ""
 
-#: .\templates\header.html:34 .\templates\header.html:63
+#: .\templates\header.html:27
 msgid "Categories"
 msgstr ""
 
-#: .\templates\header.html:74
+#: .\templates\header.html:60
 msgid "Hello"
 msgstr ""
 
-#: .\templates\header.html:80
+#: .\templates\header.html:66
 msgid "Sign out"
 msgstr ""
 
-#: .\templates\header.html:87 .\templates\registration\login.html:33
+#: .\templates\header.html:73 .\templates\registration\login.html:33
 msgid "Sign in"
 msgstr ""
 
@@ -399,7 +429,7 @@ msgstr ""
 msgid "All materials categories"
 msgstr ""
 
-#: .\templates\material\all_categories.html:12
+#: .\templates\material\all_categories.html:13
 msgid "Quantity"
 msgstr ""
 
@@ -412,19 +442,19 @@ msgstr ""
 msgid "Materials in category"
 msgstr ""
 
-#: .\templates\material\view_category.html:32
+#: .\templates\material\view_category.html:33
 msgid "There are not any materials in the category"
 msgstr ""
 
-#: .\templates\material\view_material.html:46
+#: .\templates\material\view_material.html:47
 msgid "Price change"
 msgstr ""
 
-#: .\templates\material\view_material.html:51
+#: .\templates\material\view_material.html:53
 msgid "New price"
 msgstr ""
 
-#: .\templates\material\view_material.html:64
+#: .\templates\material\view_material.html:66
 msgid "There isn't price changes"
 msgstr ""
 
@@ -436,10 +466,6 @@ msgstr ""
 msgid ""
 "Пожалуйста, введите правильные имя пользователя и пароль. Оба поля могут "
 "быть чувствительны к регистру."
-msgstr ""
-
-#: .\templates\registration\login.html:26
-msgid "Username"
 msgstr ""
 
 #: .\templates\registration\login.html:27

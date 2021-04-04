@@ -5,66 +5,69 @@
 
 {% block content %}
 <h1>{{ material.name }}, {{ material.color }}</h1>
-
-<table class="table mt-3">
-    <tbody>
-        <tr>
-            <th scope="row">{% trans "Name" %}</th>
-            <td>{{ material.name }}</td>
-        </tr>
-        <tr>
-            <th scope="row">{% trans "Category" %}</th>
-            <td>
-                <a href="{% url 'view_category' id=material.id_category.id %}">{{ material.id_category }}</a>
-            </td>
-        </tr>
-        <tr>
-            <th scope="row">{% trans "Color" %}</th>
-            <td>{{ material.color }}</td>
-        </tr>
-        <tr>
-            <th scope="row">{% trans "Vendor code" %}</th>
-            <td>{{ material.vendor_code }}</td>
-        </tr>
-        <tr>   
-            <th scope="row">{% trans "Balance (meters or pieces)" %}</th>
-            <td>{{ material.balance }}</td>
-        </tr>
-        <tr>
-            <th scope="row">{% trans "Price" %}</th>
-            <td>{{ material_price }}</td>
-        </tr>
-        {% if material.comment %}
+<div class="table-responsive mt-3">
+    <table class="table">
+        <tbody>
             <tr>
-                <th scope="row">{% trans "Comment" %}</th>
-                <td>{{ material.comment }}</td>
+                <th scope="row">{% trans "Name" %}</th>
+                <td>{{ material.name }}</td>
             </tr>
-        {% endif %}
-    </tbody>
-</table>
+            <tr>
+                <th scope="row">{% trans "Category" %}</th>
+                <td>
+                    <a href="{% url 'view_category' id=material.id_category.id %}">{{ material.id_category }}</a>
+                </td>
+            </tr>
+            <tr>
+                <th scope="row">{% trans "Color" %}</th>
+                <td>{{ material.color }}</td>
+            </tr>
+            <tr>
+                <th scope="row">{% trans "Vendor code" %}</th>
+                <td>{{ material.vendor_code }}</td>
+            </tr>
+            <tr>   
+                <th scope="row">{% trans "Balance (meters or pieces)" %}</th>
+                <td>{{ material.balance }}</td>
+            </tr>
+            <tr>
+                <th scope="row">{% trans "Price" %}</th>
+                <td>{{ material_price }}</td>
+            </tr>
+            {% if material.comment %}
+                <tr>
+                    <th scope="row">{% trans "Comment" %}</th>
+                    <td>{{ material.comment }}</td>
+                </tr>
+            {% endif %}
+        </tbody>
+    </table>
+</div>
 
 <h4>{% trans "Price change" %}</h4>
-<table class="table mt-3">
-    <thead class="thead-dark">
-        <tr>
-            <th scope="col">{% trans "Modification date" %}</th>
-            <th scope="col">{% trans "New price" %}</th>
-        </tr>
-    </thead>
-    <tbody>
-        {% if material_prices %}
-            {% for price in material_prices %}
-                <tr>
-                    <td>{{ price.modification_date }}</td>
-                    <td>{{ price.price }}</td>
-                </tr>
-            {% endfor %}
-        {% else %}
+<div class="table-responsive mt-3">
+    <table class="table">
+        <thead class="thead-dark">
             <tr>
-                <td colspan="2" class="text-center font-italic">{% trans "There isn't price changes" %}</td>
-            </tr> 
-        {% endif %}
-    </tbody>
-</table>
+                <th scope="col">{% trans "Modification date" %}</th>
+                <th scope="col">{% trans "New price" %}</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% if material_prices %}
+                {% for price in material_prices %}
+                    <tr>
+                        <td>{{ price.modification_date }}</td>
+                        <td>{{ price.price }}</td>
+                    </tr>
+                {% endfor %}
+            {% else %}
+                <tr>
+                    <td colspan="2" class="text-center font-italic">{% trans "There isn't price changes" %}</td>
+                </tr> 
+            {% endif %}
+        </tbody>
+    </table>
+</div>
 
 {% endblock %}
