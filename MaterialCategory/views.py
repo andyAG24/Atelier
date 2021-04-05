@@ -1,8 +1,10 @@
 from django.shortcuts import render
+from django.contrib.auth.decorators import login_required
 from Material.models import Material
 from MaterialCategory.models import MaterialCategory
 from MaterialPrice.views import get_material_with_price
 
+@login_required(login_url='auth')
 def all_categories(request):
     context = {}
     context['user_group'] = request.user.groups.all()[0].name
@@ -22,6 +24,7 @@ def get_categories():
         categories_list.append(category_object)
     return categories_list
 
+@login_required(login_url='auth')
 def view_category(request, id):
     context = {}
     context['user_group'] = request.user.groups.all()[0].name

@@ -1,43 +1,80 @@
 {% extends 'base.html' %}
 {% load i18n %}
 
-{% block title %}{% trans "All employees" %}{% endblock %}
+{% block title %}
+    {% if employee.user.last_name and employee.user.first_name %}
+        {{ employee.user.last_name }} {{ employee.user.first_name }}
+    {% elif employee.user.last_name and not employee.user.first_name %}
+        {{ employee.user.last_name }} ({{ employee.user }})
+    {% elif not employee.user.last_name and employee.user.first_name %}
+        {{ employee.user.first_name }} ({{ employee.user }})
+    {% else %}
+        {{ employee.user }}
+    {% endif %}
+{% endblock %}
 
 {% block content %}
-{% if employee.id.last_name and employee.id.first_name %}
-    <h1>{{ employee.id.last_name }} {{ employee.id.first_name }}</h1>
-{% elif employee.id.last_name and not employee.id.first_name %}
-    <h1>{{ employee.id.last_name }} ({{ employee.id }})</h1>
-{% elif not employee.id.last_name and employee.id.first_name %}
-    <h1>{{ employee.id.first_name }} ({{ employee.id }})</h1>
+<a class="btn btn-link" href="{{request.META.HTTP_REFERER}}">← {% trans 'Previous page' %}</a>
+
+{% if employee.user.last_name and employee.user.first_name %}
+    <h1>{{ employee.user.last_name }} {{ employee.user.first_name }}</h1>
+{% elif employee.user.last_name and not employee.user.first_name %}
+    <h1>{{ employee.user.last_name }} ({{ employee.user }})</h1>
+{% elif not employee.user.last_name and employee.user.first_name %}
+    <h1>{{ employee.user.first_name }} ({{ employee.user }})</h1>
 {% else %}
-    <h1>{{ employee.id }}</h1>
+    <h1>{{ employee.user }}</h1>
 {% endif %}
+
 <div class="table-responsive mt-3">
     <table class="table">
         <tbody>
             <tr>
                 <th scope="row">{% trans "Last name" %}</th>
-                <td>{{ employee.id.last_name }}</td>
+                <td>
+                    {% if employee.user.last_name %}
+                        {{ employee.user.last_name }}
+                    {% else %}
+                        <i>{% trans 'Undefined'%}</i>
+                    {% endif %}
+                </td>
             </tr>
             <tr>
                 <th scope="row">{% trans "First name" %}</th>
-                <td>{{ employee.id.first_name }}</td>
+                <td>
+                    {% if employee.user.first_name %}
+                        {{ employee.user.first_name }}
+                    {% else %}
+                        <i>{% trans 'Undefined'%}</i>
+                    {% endif %}
+                </td>
             </tr>
             <tr>
                 <th scope="row">{% trans "Username" %}</th>
-                <td>{{ employee.id }}</td>
+                <td>{{ employee.user }}</td>
             </tr>
             <tr>
                 <th scope="row">{% trans "Employee type" %}</th>
-                <td>{{ employee.employee_type }}</td>
+                <td>
+                    {% if employee.employee_type == 'MANAGER' %}
+                        {% trans 'Manager' %}
+                    {% elif employee.employee_type == 'SEWER' %}
+                        {% trans 'Sewer' %}
+                    {% else %}
+                        <i>{% trans 'Undefined' %}</i>
+                    {% endif %}
+                </td>
             </tr>
             <tr>   
                 <th scope="row">{% trans "Services" %}</th>
                 <td>
-                    {% for service in employee_services %}
-                        {{ service.name }}
-                    {% endfor %}
+                    {% if employee_services %}
+                        {% for service in employee_services %}
+                            <a href="{% url 'view_service' id=service.id %}">{{ service.name }}</a>
+                        {% endfor %}
+                    {% else %}
+                        <i>{% trans 'Undefined'%}</i>
+                    {% endif %}
                 </td>
             </tr>
             <tr>   

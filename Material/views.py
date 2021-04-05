@@ -1,8 +1,10 @@
 from django.shortcuts import render
+from django.contrib.auth.decorators import login_required
 from MaterialPrice.views import get_current_price, get_price_history
 from .models import Material
 from MaterialCategory.models import MaterialCategory
 
+@login_required(login_url='auth')
 def all_materials(request):
     context = {}
     context['user_group'] = request.user.groups.all()[0].name
@@ -18,6 +20,7 @@ def all_materials(request):
     context['materials'] = material_list
     return render(request, 'material/all_materials.html', context)
 
+@login_required(login_url='auth')
 def view_material(request, id):
     context = {}
     context['user_group'] = request.user.groups.all()[0].name

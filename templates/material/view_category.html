@@ -1,9 +1,10 @@
 {% extends 'base.html' %}
 {% load i18n %}
 
-{% block title %}{{ category }}{% endblock %}
+{% block title %}{{ category_name }}{% endblock %}
 
 {% block content %}
+<a class="btn btn-link" href="{{request.META.HTTP_REFERER}}">← {% trans 'Previous page' %}</a>
 
 <h1>{% trans "Materials in category" %} {{ category_name }}</h1>
 <div class="table-responsive mt-3">

@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% load i18n %}
+
+{% block title %}{% trans "All services" %}{% endblock %}
+
+{% block content %}
+
+<h1>{% trans "All services" %}</h1>
+<div class="table-responsive mt-3">
+    <table class="table">
+        <thead class="thead-dark">
+            <tr>
+                <th scope="col">{% trans "Name" %}</th>
+                <th scope="col">{% trans "Price" %}</th>
+                <th scope="col">{% trans "Quantity of employees" %}</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for service in services %}
+                <tr>
+                    <td>
+                        <a href="{% url 'view_service' id=service.service.id %}">{{ service.service }}</a>
+                    </td>
+                    <td>{{ service.price }}</td>
+                    <td>{{ service.employee_quantity }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

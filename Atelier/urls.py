@@ -27,5 +27,6 @@ urlpatterns = [
     path('auth/', redirect_to_auth, name='auth'),
     path('orders/', include('Order.urls')),
     path('materials/', include('Material.urls')),
-    path('employees/', include('Employee.urls'))
+    path('employees/', include('Employee.urls')),
+    path('services/', include('Service.urls'))
 ]

@@ -4,6 +4,8 @@
 {% block title %}{{ material.name }}, {{ material.color }}{% endblock %}
 
 {% block content %}
+<a class="btn btn-link" href="{{request.META.HTTP_REFERER}}">← {% trans 'Previous page' %}</a>
+
 <h1>{{ material.name }}, {{ material.color }}</h1>
 <div class="table-responsive mt-3">
     <table class="table">

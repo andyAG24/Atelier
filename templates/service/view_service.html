@@ -1,0 +1,94 @@
+{% extends 'base.html' %}
+{% load i18n %}
+
+{% block title %}{% trans 'Service' %} {{ service }}{% endblock %}
+
+{% block content %}
+<a class="btn btn-link" href="{{request.META.HTTP_REFERER}}">← {% trans 'Previous page' %}</a>
+
+<h1>{% trans 'Service' %} {{ service }}</h1>
+
+<div class="table-responsive mt-3">
+    <table class="table">
+        <tbody>
+            <tr>
+                <th scope="row">{% trans "Name" %}</th>
+                <td>{{ service.name }}</td>
+            </tr>
+            <tr>
+                <th scope="row">{% trans "Price" %}</th>
+                <td>{{ service_price }}</td>
+            </tr>
+            {% if service.comment %}
+                <tr>
+                    <th scope="row">{% trans "Comment" %}</th>
+                    <td>{{ service.comment }}</td>
+                </tr>
+            {% endif %}
+        </tbody>
+    </table>
+</div>
+
+<h4>{% trans "Employees" %}</h4>
+<div class="table-responsive mt-3">
+    <table class="table">
+        <thead class="thead-dark">
+            <tr>
+                <th scope="col">{% trans "Employee" %}</th>
+                <th scope="col">{% trans "Work experience (years)" %}</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% if employees_in_service %}
+                {% for employee in employees_in_service %}
+                    <tr>
+                        <td>
+                            <a href="{% url 'view_employee' id=employee.user.id %}">{{ employee }}</a>
+                        </td>
+                        <td>
+                            {% if employee.work_xp %}
+                                {{ employee.work_xp }}
+                            {% else %}
+                                {% trans "No work experience" %}
+                            {% endif %}
+                        </td>
+                    </tr>
+                {% endfor %}
+            {% else %} 
+                <tr>
+                    <td class="text-center" colspan="2">
+                        <i>{% trans "No one provides this service" %}</i>
+                    </td>
+                </tr>
+            {% endif %}
+        </tbody>
+    </table>
+</div>
+
+<h4>{% trans "Price change" %}</h4>
+<div class="table-responsive mt-3">
+    <table class="table">
+        <thead class="thead-dark">
+            <tr>
+                <th scope="col">{% trans "Modification date" %}</th>
+                <th scope="col">{% trans "New price" %}</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% if service_prices %}
+                {% for price in service_prices %}
+                    <tr>
+                        <td>{{ price.modification_date }}</td>
+                        <td>{{ price.price }}</td>
+                    </tr>
+                {% endfor %}
+            {% else %}
+                <tr>
+                    <td colspan="2" class="text-center font-italic">{% trans "There isn't price changes" %}</td>
+                </tr> 
+            {% endif %}
+        </tbody>
+    </table>
+</div>
+
+{% endblock %}

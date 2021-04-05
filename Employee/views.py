@@ -1,7 +1,9 @@
 from django.shortcuts import render
 from .models import Employee, EmployeeServices
+from django.contrib.auth.decorators import login_required
 from Service.models import Service
 
+@login_required(login_url='auth')
 def all_employees(request):
     context = {}
     context['user_group'] = request.user.groups.all()[0].name
@@ -20,7 +22,7 @@ def get_employees():
     return employees
 
 def get_employee_services(employee):
-    employee_user_profile = employee.id
+    employee_user_profile = employee.user
     employee_services = EmployeeServices.objects.filter(id_employee=employee_user_profile.id)
 
     services_list = []
@@ -29,11 +31,12 @@ def get_employee_services(employee):
         services_list.append(service)
     return services_list
 
+@login_required(login_url='auth')
 def view_employee(request, id):
     context = {}
     context['user_group'] = request.user.groups.all()[0].name
 
-    employee = Employee.objects.get(id=id)
+    employee = Employee.objects.get(user=id)
     context['employee'] = employee
     context['employee_services'] = get_employee_services(employee)
 

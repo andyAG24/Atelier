@@ -12,11 +12,11 @@ class Employee(models.Model):
         MANAGER = 'MANAGER', _('Manager')
         UNDEFINED = 'UNDEFINED', _('Undefined')
 
-    id = models.OneToOneField(User,
-                              models.CASCADE,
-                              db_column='id',
-                              verbose_name=_('User'),
-                              primary_key=True)
+    user = models.OneToOneField(User,
+                                models.CASCADE,
+                                db_column='user',
+                                verbose_name=_('User'),
+                                primary_key=True)
     employee_type = models.CharField(db_column='Employee type',
                                      verbose_name=_('Employee type'),
                                      max_length=9,
@@ -36,21 +36,13 @@ class Employee(models.Model):
         verbose_name = _('Employee')
         verbose_name_plural = _('Employees')
 
-    def is_manager(self):
-        groups = self.id.groups.all()
-        return groups.filter(name='Managers').exists()
-
-    def is_sewer(self):
-        groups = self.id.groups.all()
-        return groups.filter(name='Sewers').exists()
-
     def __str__(self):
-        if self.id.first_name and self.id.last_name:
-            return '{0} {1}'.format(self.id.last_name, self.id.first_name)
-        elif self.id.last_name:
-            return '{0} ({1})'.format(self.id.last_name, self.id.username)
+        if self.user.first_name and self.user.last_name:
+            return '{0} {1}'.format(self.user.last_name, self.user.first_name)
+        elif self.user.last_name:
+            return '{0} ({1})'.format(self.user.last_name, self.user.username)
         else:
-            return '{0}'.format(self.id.username)
+            return '{0}'.format(self.user.username)
 
 class EmployeeServices(models.Model):
     id_employee = models.ForeignKey(Employee,

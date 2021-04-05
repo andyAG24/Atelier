@@ -4,6 +4,7 @@
 {% block title %}{% trans "All employees" %}{% endblock %}
 
 {% block content %}
+
 <h1>{% trans "All employees" %}</h1>
 <div class="table-responsive mt-3">
     <table class="table">
@@ -15,18 +16,28 @@
                 <th scope="col">{% trans "Employee type" %}</th>
                 <th scope="col">{% trans "Services" %}</th>
                 <th scope="col">{% trans "Phone" %}</th>
-                <th scope="col">{% trans "Work experience" %}</th>
+                <th scope="col">{% trans "Work experience (years)" %}</th>
             </tr>
         </thead>
         <tbody>
             {% for employee in employees %}
                 <tr>
-                    <th scope="row">{{ employee.employee_object.id.last_name }}</th>
-                    <td>{{ employee.employee_object.id.first_name }}</td>
+                    <th scope="row">{{ employee.employee_object.user.last_name }}</th>
+                    <td>{{ employee.employee_object.user.first_name }}</td>
                     <td>
-                        <a href="{% url 'view_employee' id=employee.employee_object.id.id %}">{{ employee.employee_object.id }}</a>
+                        <a href="{% url 'view_employee' id=employee.employee_object.user.id %}">
+                            {{ employee.employee_object.user }}
+                        </a>
                     </td>
-                    <td>{{ employee.employee_object.employee_type }}</td>
+                    <td>
+                        {% if employee.employee_object.employee_type == 'MANAGER' %}
+                            {% trans 'Manager' %}
+                        {% elif employee.employee_object.employee_type == 'SEWER' %}
+                            {% trans 'Sewer' %}
+                        {% else %}
+                            <i>{% trans 'Undefined' %}</i>
+                        {% endif %}
+                    </td>
                     <td>
                         {% for service in employee.employee_services %}
                         <a href="#">{{ service.name }}</a>
