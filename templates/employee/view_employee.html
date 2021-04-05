@@ -35,7 +35,7 @@
                     {% if employee.user.last_name %}
                         {{ employee.user.last_name }}
                     {% else %}
-                        <i>{% trans 'Undefined'%}</i>
+                        <i>{% trans "Undefinedd" %}</i>
                     {% endif %}
                 </td>
             </tr>
@@ -45,7 +45,7 @@
                     {% if employee.user.first_name %}
                         {{ employee.user.first_name }}
                     {% else %}
-                        <i>{% trans 'Undefined'%}</i>
+                        <i>{% trans "Undefinedd" %}</i>
                     {% endif %}
                 </td>
             </tr>
@@ -61,7 +61,7 @@
                     {% elif employee.employee_type == 'SEWER' %}
                         {% trans 'Sewer' %}
                     {% else %}
-                        <i>{% trans 'Undefined' %}</i>
+                        <i>{% trans "Undefinedd" %}</i>
                     {% endif %}
                 </td>
             </tr>
@@ -73,7 +73,7 @@
                             <a href="{% url 'view_service' id=service.id %}">{{ service.name }}</a>
                         {% endfor %}
                     {% else %}
-                        <i>{% trans 'Undefined'%}</i>
+                        <i>{% trans "Undefinedd" %}</i>
                     {% endif %}
                 </td>
             </tr>

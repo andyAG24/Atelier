@@ -1,7 +1,7 @@
 from django.shortcuts import render
-from .models import Employee, EmployeeServices
 from django.contrib.auth.decorators import login_required
 from Service.models import Service
+from .models import Employee, EmployeeServices
 
 @login_required(login_url='auth')
 def all_employees(request):
@@ -41,3 +41,8 @@ def view_employee(request, id):
     context['employee_services'] = get_employee_services(employee)
 
     return render(request, 'employee/view_employee.html', context)
+
+@login_required(login_url='auth')
+def view_own_profile(request):
+    id = request.user.id
+    return view_employee(request, id)

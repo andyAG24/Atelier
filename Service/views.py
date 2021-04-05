@@ -38,5 +38,4 @@ def view_service(request, id):
     for service in employee_service:
         employees.append(Employee.objects.get(user=service.id_employee))
     context['employees_in_service'] = employees
-    print(context)
     return render(request, 'service/view_service.html', context)

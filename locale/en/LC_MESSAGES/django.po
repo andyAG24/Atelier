@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-04-06 00:27+0300\n"
+"POT-Creation-Date: 2021-04-06 02:32+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -26,63 +26,69 @@ msgstr ""
 msgid "Client"
 msgstr ""
 
-#: .\Client\models.py:6 .\templates\employee\all_employees.html:14
+#: .\Client\models.py:6 .\templates\client\all_clients.html:14
+#: .\templates\client\view_client.html:23
+#: .\templates\employee\all_employees.html:14
 #: .\templates\employee\view_employee.html:43
 msgid "First name"
 msgstr ""
 
-#: .\Client\models.py:9 .\templates\employee\all_employees.html:13
+#: .\Client\models.py:9 .\templates\client\all_clients.html:13
+#: .\templates\client\view_client.html:17
+#: .\templates\employee\all_employees.html:13
 #: .\templates\employee\view_employee.html:33
 msgid "Last name"
 msgstr ""
 
 #: .\Client\models.py:12 .\Employee\models.py:26
+#: .\templates\client\all_clients.html:15
+#: .\templates\client\view_client.html:29
 #: .\templates\employee\all_employees.html:18
-#: .\templates\employee\view_employee.html:73
+#: .\templates\employee\view_employee.html:81
 msgid "Phone"
 msgstr ""
 
-#: .\Client\models.py:15
+#: .\Client\models.py:15 .\templates\client\view_client.html:34
 msgid "Height"
 msgstr ""
 
-#: .\Client\models.py:19
+#: .\Client\models.py:19 .\templates\client\view_client.html:40
 msgid "Chest girth"
 msgstr ""
 
-#: .\Client\models.py:23
+#: .\Client\models.py:23 .\templates\client\view_client.html:46
 msgid "Chest height"
 msgstr ""
 
-#: .\Client\models.py:27
+#: .\Client\models.py:27 .\templates\client\view_client.html:52
 msgid "Waist girth"
 msgstr ""
 
-#: .\Client\models.py:31
+#: .\Client\models.py:31 .\templates\client\view_client.html:58
 msgid "Hip girth"
 msgstr ""
 
-#: .\Client\models.py:35
+#: .\Client\models.py:35 .\templates\client\view_client.html:64
 msgid "Neck girth"
 msgstr ""
 
-#: .\Client\models.py:39
+#: .\Client\models.py:39 .\templates\client\view_client.html:70
 msgid "Shoulder girth"
 msgstr ""
 
-#: .\Client\models.py:43
+#: .\Client\models.py:43 .\templates\client\view_client.html:76
 msgid "Hand girth"
 msgstr ""
 
-#: .\Client\models.py:47
+#: .\Client\models.py:47 .\templates\client\view_client.html:82
 msgid "Hand length"
 msgstr ""
 
-#: .\Client\models.py:51
+#: .\Client\models.py:51 .\templates\client\view_client.html:88
 msgid "Back width"
 msgstr ""
 
-#: .\Client\models.py:55
+#: .\Client\models.py:55 .\templates\client\view_client.html:94
 msgid "Length waist-floor"
 msgstr ""
 
@@ -91,23 +97,22 @@ msgid "Clients"
 msgstr ""
 
 #: .\Employee\apps.py:6 .\Employee\models.py:36 .\Employee\models.py:51
-#: .\Order\models.py:83
+#: .\Order\models.py:83 .\templates\service\view_service.html:37
 msgid "Employee"
 msgstr ""
 
 #: .\Employee\models.py:11 .\templates\employee\all_employees.html:36
+#: .\templates\employee\view_employee.html:62
 msgid "Sewer"
 msgstr ""
 
 #: .\Employee\models.py:12 .\templates\employee\all_employees.html:34
+#: .\templates\employee\view_employee.html:60
 msgid "Manager"
 msgstr ""
 
 #: .\Employee\models.py:13 .\MaterialPrice\views.py:8
-#: .\templates\employee\all_employees.html:38
-#: .\templates\employee\view_employee.html:38
-#: .\templates\employee\view_employee.html:48
-#: .\templates\employee\view_employee.html:68
+#: .\ServicePrice\views.py:8
 msgid "Undefined"
 msgstr ""
 
@@ -125,7 +130,7 @@ msgid "Work XP"
 msgstr ""
 
 #: .\Employee\models.py:37 .\templates\header.html:42
-#: .\templates\service\view_service.html:11
+#: .\templates\service\view_service.html:32
 msgid "Employees"
 msgstr ""
 
@@ -168,12 +173,13 @@ msgstr ""
 #: .\templates\material\view_category.html:14
 #: .\templates\material\view_material.html:14
 #: .\templates\service\all_services.html:13
-#: .\templates\service\view_service.html:16
+#: .\templates\service\view_service.html:15
 msgid "Name"
 msgstr ""
 
 #: .\MaterialCategory\models.py:9 .\Material\models.py:21 .\Order\models.py:98
 #: .\templates\material\view_material.html:41
+#: .\templates\service\view_service.html:24
 msgid "Comment"
 msgstr ""
 
@@ -192,6 +198,7 @@ msgstr ""
 
 #: .\MaterialPrice\models.py:19 .\ServicePrice\models.py:21
 #: .\templates\material\view_material.html:54
+#: .\templates\service\view_service.html:73
 msgid "Modification date"
 msgstr ""
 
@@ -360,6 +367,8 @@ msgstr ""
 #: .\ServicePrice\models.py:15 .\templates\material\all_materials.html:18
 #: .\templates\material\view_category.html:17
 #: .\templates\material\view_material.html:36
+#: .\templates\service\all_services.html:14
+#: .\templates\service\view_service.html:19
 msgid "Price"
 msgstr ""
 
@@ -376,8 +385,20 @@ msgid "Commentary"
 msgstr ""
 
 #: .\Service\models.py:17 .\templates\employee\all_employees.html:17
-#: .\templates\employee\view_employee.html:61 .\templates\header.html:50
+#: .\templates\employee\view_employee.html:69 .\templates\header.html:50
 msgid "Services"
+msgstr ""
+
+#: .\templates\client\all_clients.html:4 .\templates\client\all_clients.html:8
+msgid "All clients"
+msgstr ""
+
+#: .\templates\client\view_client.html:9
+#: .\templates\employee\view_employee.html:17
+#: .\templates\material\view_category.html:7
+#: .\templates\material\view_material.html:7
+#: .\templates\service\view_service.html:7
+msgid "Previous page"
 msgstr ""
 
 #: .\templates\employee\all_employees.html:4
@@ -392,22 +413,23 @@ msgid "Username"
 msgstr ""
 
 #: .\templates\employee\all_employees.html:19
-#: .\templates\employee\view_employee.html:77
-#: .\templates\service\view_service.html:17
+#: .\templates\employee\view_employee.html:85
+#: .\templates\service\view_service.html:38
 msgid "Work experience (years)"
 msgstr ""
 
-#: .\templates\employee\all_employees.html:51
-#: .\templates\employee\view_employee.html:82
-#: .\templates\service\view_service.html:31
-msgid "No work experience"
+#: .\templates\employee\all_employees.html:38
+#: .\templates\employee\view_employee.html:38
+#: .\templates\employee\view_employee.html:48
+#: .\templates\employee\view_employee.html:64
+#: .\templates\employee\view_employee.html:76
+msgid "Undefinedd"
 msgstr ""
 
-#: .\templates\employee\view_employee.html:17
-#: .\templates\material\view_category.html:7
-#: .\templates\material\view_material.html:7
-#: .\templates\service\view_service.html:7
-msgid "Previous page"
+#: .\templates\employee\all_employees.html:51
+#: .\templates\employee\view_employee.html:90
+#: .\templates\service\view_service.html:52
+msgid "No work experience"
 msgstr ""
 
 #: .\templates\header.html:3
@@ -461,14 +483,17 @@ msgid "There are not any materials in the category"
 msgstr ""
 
 #: .\templates\material\view_material.html:49
+#: .\templates\service\view_service.html:68
 msgid "Price change"
 msgstr ""
 
 #: .\templates\material\view_material.html:55
+#: .\templates\service\view_service.html:74
 msgid "New price"
 msgstr ""
 
 #: .\templates\material\view_material.html:68
+#: .\templates\service\view_service.html:87
 msgid "There isn't price changes"
 msgstr ""
 
@@ -499,10 +524,10 @@ msgstr ""
 msgid "All services"
 msgstr ""
 
-#: .\templates\service\all_services.html:14
+#: .\templates\service\all_services.html:15
 msgid "Quantity of employees"
 msgstr ""
 
-#: .\templates\service\view_service.html:39
+#: .\templates\service\view_service.html:60
 msgid "No one provides this service"
 msgstr ""

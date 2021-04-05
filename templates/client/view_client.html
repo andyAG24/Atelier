@@ -1,0 +1,101 @@
+{% extends 'base.html' %}
+{% load i18n %}
+
+{% block title %}
+    {{ client.client_object }}
+{% endblock %}
+
+{% block content %}
+<a class="btn btn-link" href="{{request.META.HTTP_REFERER}}">← {% trans 'Previous page' %}</a>
+
+<h1>{{ client.client_object }}</h1>
+
+<div class="table-responsive mt-3">
+    <table class="table">
+        <tbody>
+            <tr>
+                <th scope="row">{% trans "Last name" %}</th>
+                <td>
+                    {{ client.client_object.last_name }}
+                </td>
+            </tr>
+            <tr>
+                <th scope="row">{% trans "First name" %}</th>
+                <td>
+                    {{ client.client_object.first_name }}
+                </td>
+            </tr>
+            <tr>
+                <th scope="row">{% trans "Phone" %}</th>
+                <td>{{ client.client_object.phone }}</td>
+            </tr>
+            {% if client.client_object.height %}
+                <tr>
+                    <th scope="row">{% trans "Height" %}</th>
+                    <td>{{ client.client_object.height }}</td>
+                </tr>
+            {% endif %}
+            {% if client.client_object.chest_girth %}
+                <tr>
+                    <th scope="row">{% trans "Chest girth" %}</th>
+                    <td>{{ client.client_object.chest_girth }}</td>
+                </tr>
+            {% endif %}
+            {% if client.client_object.chest_height %}
+                <tr>
+                    <th scope="row">{% trans "Chest height" %}</th>
+                    <td>{{ client.client_object.chest_height }}</td>
+                </tr>
+            {% endif %}
+            {% if client.client_object.waist_girth %}
+                <tr>
+                    <th scope="row">{% trans "Waist girth" %}</th>
+                    <td>{{ client.client_object.waist_girth }}</td>
+                </tr>
+            {% endif %}
+            {% if client.client_object.hip_girth %}
+                <tr>
+                    <th scope="row">{% trans "Hip girth" %}</th>
+                    <td>{{ client.client_object.hip_girth }}</td>
+                </tr>
+            {% endif %}
+            {% if client.client_object.neck_girth %}
+                <tr>
+                    <th scope="row">{% trans "Neck girth" %}</th>
+                    <td>{{ client.client_object.neck_girth }}</td>
+                </tr>
+            {% endif %}
+            {% if client.client_object.shoulder_girth %}
+                <tr>
+                    <th scope="row">{% trans "Shoulder girth" %}</th>
+                    <td>{{ client.client_object.shoulder_girth }}</td>
+                </tr>
+            {% endif %}
+            {% if client.client_object.hand_girth %}
+                <tr>
+                    <th scope="row">{% trans "Hand girth" %}</th>
+                    <td>{{ client.client_object.hand_girth }}</td>
+                </tr>
+            {% endif %}
+            {% if client.client_object.hand_length %}
+                <tr>
+                    <th scope="row">{% trans "Hand length" %}</th>
+                    <td>{{ client.client_object.hand_length }}</td>
+                </tr>
+            {% endif %}
+            {% if client.client_object.back_width %}
+                <tr>
+                    <th scope="row">{% trans "Back width" %}</th>
+                    <td>{{ client.client_object.back_width }}</td>
+                </tr>
+            {% endif %}
+            {% if client.client_object.length_waist_floor %}
+                <tr>
+                    <th scope="row">{% trans "Length waist-floor" %}</th>
+                    <td>{{ client.client_object.length_waist_floor }}</td>
+                </tr>
+            {% endif %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

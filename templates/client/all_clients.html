@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% load i18n %}
+
+{% block title %}{% trans "All clients" %}{% endblock %}
+
+{% block content %}
+
+<h1>{% trans "All clients" %}</h1>
+<div class="table-responsive mt-3">
+    <table class="table">
+        <thead class="thead-dark">
+            <tr>
+                <th scope="col">{% trans "Last name" %}</th>
+                <th scope="col">{% trans "First name" %}</th>
+                <th scope="col">{% trans "Phone" %}</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for client in clients %}
+                <tr>
+                    <th scope="row">
+                        <a href="{% url 'view_client' id=client.id %}">{{ client.last_name }}</a>
+                    </th>
+                    <td>
+                        <a href="{% url 'view_client' id=client.id %}">{{ client.first_name }}</a>
+                    </td>
+                    <td>{{ client.phone }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}
