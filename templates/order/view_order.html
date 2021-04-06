@@ -11,12 +11,22 @@
     <table class="table">
         <tbody>
             <tr>
+                <th scope="row">{% trans "Servicee" %}</th>
+                <td>
+                    {% if order.order_object.id_service %}
+                        <a href="{% url 'view_service' id=order.order_object.id_service.id %}">{{ order.order_object.id_service }}</a>
+                    {% else %}
+                        <i>{% trans "Undefinedd" %}</i>
+                    {% endif %}
+                </td>
+            </tr>
+            <tr>
                 <th scope="row">{% trans "Status" %}</th>
-                <td>{{ order.order_object.status }}</td>
+                <td>{{ order.localized_status }}</td>
             </tr>
             <tr>
                 <th scope="row">{% trans "Payment status" %}</th>
-                <td>{{ order.order_object.payment_status }}</td>
+                <td>{{ order.localized_payment_status }}</td>
             </tr>
             <tr>
                 <th scope="row">{% trans "Prepayment" %}</th>
@@ -48,11 +58,11 @@
             </tr>
             <tr>
                 <th scope="row">{% trans "Urgency" %}</th>
-                <td>{{ order.order_object.urgency }}</td>
+                <td>{{ order.localized_urgency }}</td>
             </tr>
             <tr>
                 <th scope="row">{% trans "Labour intensity" %}</th>
-                <td>{{ order.order_object.labour_intensity }}</td>
+                <td>{{ order.localized_labour_intensity }}</td>
             </tr>
             {% if order.order_object.comment %}
                 <tr>
@@ -93,7 +103,35 @@
                 {% endfor %}
             {% else %}
                 <tr>
-                    <td colspan="3" class="text-center font-italic">{% trans "There are not any order materials" %}</td>
+                    <td colspan="5" class="text-center font-italic">{% trans "There are not any order materials" %}</td>
+                </tr> 
+            {% endif %}
+        </tbody>
+    </table>
+</div>
+
+<h4>{% trans "Fittings" %}</h4>
+<div class="table-responsive mt-3">
+    <table class="table">
+        <thead class="thead-dark">
+            <tr>
+                <th scope="col">{% trans "Index number" %}</th>
+                <th scope="col">{% trans "Date" %}</th>
+                <th scope="col">{% trans "Status" %}</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% if order.fittings %}
+                {% for fitting in order.fittings %}
+                    <tr>
+                        <td>{{ fitting.fitting_object.index_number }}</td>
+                        <td>{{ fitting.fitting_object.date }}</td>
+                        <td>{{ fitting.localized_fitting_status }}</td>
+                    </tr>
+                {% endfor %}
+            {% else %}
+                <tr>
+                    <td colspan="3" class="text-center font-italic">{% trans "There was not any fitting" %}</td>
                 </tr> 
             {% endif %}
         </tbody>

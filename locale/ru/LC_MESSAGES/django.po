@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-04-06 13:26+0300\n"
+"POT-Creation-Date: 2021-04-06 16:32+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -25,7 +25,7 @@ msgid "You are not allowed to view this page."
 msgstr "Вам не разрешено просматривать эту страницу."
 
 #: .\Client\apps.py:6 .\Client\models.py:62 .\Order\models.py:77
-#: .\templates\order\all_orders.html:17 .\templates\order\view_order.html:38
+#: .\templates\order\all_orders.html:17
 msgid "Client"
 msgstr "Клиент"
 
@@ -95,13 +95,13 @@ msgstr "Ширина спины"
 msgid "Length waist-floor"
 msgstr "Длина от талии до пола"
 
-#: .\Client\models.py:63 .\templates\header.html:37
+#: .\Client\models.py:63 .\templates\client\all_clients.html:4
+#: .\templates\client\all_clients.html:8 .\templates\header.html:37
 msgid "Clients"
 msgstr "Клиенты"
 
 #: .\Employee\apps.py:6 .\Employee\models.py:36 .\Employee\models.py:51
 #: .\Order\models.py:83 .\templates\order\all_orders.html:16
-#: .\templates\order\view_order.html:44
 #: .\templates\service\view_service.html:37
 msgid "Employee"
 msgstr "Сотрудник"
@@ -134,7 +134,8 @@ msgstr "Тип сотрудника"
 msgid "Work XP"
 msgstr "Опыт работы"
 
-#: .\Employee\models.py:37 .\templates\header.html:42
+#: .\Employee\models.py:37 .\templates\employee\all_employees.html:4
+#: .\templates\employee\all_employees.html:8 .\templates\header.html:42
 #: .\templates\service\view_service.html:32
 msgid "Employees"
 msgstr "Сотрудники"
@@ -143,30 +144,47 @@ msgstr "Сотрудники"
 msgid "Employee services"
 msgstr "Услуги сотрудника"
 
-#: .\Fitting\models.py:9 .\Order\apps.py:6 .\Order\models.py:105
-#: .\Order\models.py:115 .\templates\order\view_order.html:4
-#: .\templates\order\view_order.html:9
+#: .\Fitting\models.py:7 .\Fitting\views.py:17 .\Order\models.py:13
+#: .\Order\models.py:113 .\Order\views.py:82
+msgid "Created"
+msgstr "Создан"
+
+#: .\Fitting\models.py:8 .\Fitting\views.py:18
+msgid "The client is called for fitting"
+msgstr "Клиент вызван на примерку"
+
+#: .\Fitting\models.py:9 .\Fitting\views.py:19
+msgid "The product fits in size"
+msgstr "Изделие подошло по размеру"
+
+#: .\Fitting\models.py:10 .\Fitting\views.py:20
+msgid "There are flaws"
+msgstr "Есть недочеты"
+
+#: .\Fitting\models.py:15 .\Order\apps.py:6 .\Order\models.py:105
+#: .\Order\models.py:126
 msgid "Order"
 msgstr "Заказ"
 
-#: .\Fitting\models.py:13
+#: .\Fitting\models.py:17
 msgid "Index number"
 msgstr "Порядковый номер"
 
-#: .\Fitting\models.py:17
+#: .\Fitting\models.py:21
 msgid "Date"
 msgstr "Дата"
 
-#: .\Fitting\models.py:21 .\Order\models.py:44
-#: .\templates\order\all_orders.html:14 .\templates\order\view_order.html:14
+#: .\Fitting\models.py:25 .\Order\models.py:44
+#: .\templates\client\view_client.html:108
+#: .\templates\order\all_orders.html:14
 msgid "Status"
 msgstr "Статус"
 
-#: .\Fitting\models.py:29
+#: .\Fitting\models.py:33
 msgid "Fitting"
 msgstr "Примерка"
 
-#: .\Fitting\models.py:30
+#: .\Fitting\models.py:34
 msgid "Fittings"
 msgstr "Примерки"
 
@@ -179,7 +197,6 @@ msgstr "Категория материала"
 #: .\templates\material\all_materials.html:13
 #: .\templates\material\view_category.html:14
 #: .\templates\material\view_material.html:14
-#: .\templates\order\view_order.html:72
 #: .\templates\service\all_services.html:13
 #: .\templates\service\view_service.html:15
 msgid "Name"
@@ -187,17 +204,17 @@ msgstr "Название"
 
 #: .\MaterialCategory\models.py:9 .\Material\models.py:21 .\Order\models.py:98
 #: .\templates\material\view_material.html:41
-#: .\templates\order\view_order.html:59
 #: .\templates\service\view_service.html:24
 msgid "Comment"
 msgstr "Комментарий"
 
-#: .\MaterialCategory\models.py:17
+#: .\MaterialCategory\models.py:17 .\templates\material\all_categories.html:4
+#: .\templates\material\all_categories.html:8
 msgid "Materials categories"
 msgstr "Категории материалов"
 
 #: .\MaterialPrice\models.py:9 .\Material\apps.py:6 .\Material\models.py:37
-#: .\Order\models.py:121
+#: .\Order\models.py:132
 msgid "Material"
 msgstr "Материал"
 
@@ -227,7 +244,6 @@ msgstr "Артикул"
 
 #: .\Material\models.py:17 .\templates\material\all_materials.html:14
 #: .\templates\material\view_material.html:18
-#: .\templates\order\view_order.html:73
 msgid "Category"
 msgstr "Категория"
 
@@ -243,6 +259,8 @@ msgid "Color"
 msgstr "Цвет"
 
 #: .\Material\models.py:38 .\templates\header.html:23
+#: .\templates\material\all_materials.html:4
+#: .\templates\material\all_materials.html:8
 msgid "Materials"
 msgstr "Материалы"
 
@@ -251,75 +269,72 @@ msgstr "Материалы"
 msgid "%s %s (balance: %s m)"
 msgstr "%s %s (остаток: %s м)"
 
-#: .\Order\models.py:13
-msgid "Created"
-msgstr "Создан"
-
-#: .\Order\models.py:14
+#: .\Order\models.py:14 .\Order\models.py:114 .\Order\views.py:83
 msgid "Cancelled"
 msgstr "Отменен"
 
-#: .\Order\models.py:15
+#: .\Order\models.py:15 .\Order\models.py:115 .\Order\views.py:84
 msgid "In progress"
 msgstr "В работе"
 
-#: .\Order\models.py:16
+#: .\Order\models.py:16 .\Order\models.py:116 .\Order\views.py:85
 msgid "Completed"
 msgstr "Выполнен"
 
-#: .\Order\models.py:17
+#: .\Order\models.py:17 .\Order\models.py:117 .\Order\views.py:86
 msgid "Passed to the client"
 msgstr "Передан клиенту"
 
-#: .\Order\models.py:18
+#: .\Order\models.py:18 .\Order\models.py:118 .\Order\views.py:87
 msgid "Returned for rework"
 msgstr "Возвращен на доработку"
 
-#: .\Order\models.py:21
+#: .\Order\models.py:21 .\Order\views.py:101
 msgid "Low urgency"
 msgstr "Низкая"
 
-#: .\Order\models.py:22
+#: .\Order\models.py:22 .\Order\views.py:102
 msgid "Medium urgency"
 msgstr "Средняя"
 
-#: .\Order\models.py:23
+#: .\Order\models.py:23 .\Order\views.py:103
 msgid "High urgency"
 msgstr "Высокая"
 
-#: .\Order\models.py:24
+#: .\Order\models.py:24 .\Order\views.py:104
 msgid "Very high urgency"
 msgstr "Очень высокая"
 
-#: .\Order\models.py:27
+#: .\Order\models.py:27 .\Order\views.py:110
 msgid "1-3 days"
 msgstr "1-3 дня"
 
-#: .\Order\models.py:28
+#: .\Order\models.py:28 .\Order\views.py:111
 msgid "4-6 days"
 msgstr "4-6 дней"
 
-#: .\Order\models.py:29
+#: .\Order\models.py:29 .\Order\views.py:112
 msgid "7-9 days"
 msgstr "7-9 дней"
 
-#: .\Order\models.py:30
+#: .\Order\models.py:30 .\Order\views.py:113
 msgid "10+ days"
 msgstr "10+ дней"
 
-#: .\Order\models.py:33
+#: .\Order\models.py:33 .\Order\views.py:93
 msgid "Pending payment"
 msgstr "В ожидании оплаты"
 
-#: .\Order\models.py:34
+#: .\Order\models.py:34 .\Order\views.py:94
 msgid "Prepayment made"
 msgstr "Сделана предоплата"
 
-#: .\Order\models.py:35
+#: .\Order\models.py:35 .\Order\views.py:95
 msgid "Paid"
 msgstr "Оплачено"
 
 #: .\Order\models.py:40 .\ServicePrice\models.py:11 .\Service\models.py:16
+#: .\templates\client\view_client.html:109
 #: .\templates\order\all_orders.html:18
 #: .\templates\service\view_service.html:4
 #: .\templates\service\view_service.html:9
@@ -327,37 +342,38 @@ msgid "Service"
 msgstr "Услуга"
 
 #: .\Order\models.py:49 .\templates\order\all_orders.html:15
-#: .\templates\order\view_order.html:18
 msgid "Payment status"
 msgstr "Статус оплаты"
 
-#: .\Order\models.py:55 .\templates\order\view_order.html:22
+#: .\Order\models.py:55
 msgid "Prepayment"
 msgstr "Предоплата"
 
-#: .\Order\models.py:61 .\templates\order\all_orders.html:20
-#: .\templates\order\view_order.html:26 .\templates\order\view_order.html:76
+#: .\Order\models.py:61 .\templates\client\view_client.html:111
+#: .\templates\order\all_orders.html:20
 msgid "Cost"
 msgstr "Итого"
 
-#: .\Order\models.py:67 .\templates\order\all_orders.html:19
-#: .\templates\order\view_order.html:30
+#: .\Order\models.py:67 .\templates\client\view_client.html:110
+#: .\templates\order\all_orders.html:19
 msgid "Start date"
 msgstr "Дата начала"
 
-#: .\Order\models.py:71 .\templates\order\view_order.html:34
+#: .\Order\models.py:71
 msgid "End date"
 msgstr "Дата завершения"
 
-#: .\Order\models.py:87 .\templates\order\view_order.html:54
+#: .\Order\models.py:87
 msgid "Labour intensity"
 msgstr "Трудоемкость"
 
-#: .\Order\models.py:92 .\templates\order\view_order.html:50
+#: .\Order\models.py:92
 msgid "Urgency"
 msgstr "Срочность"
 
-#: .\Order\models.py:106 .\templates\header.html:18
+#: .\Order\models.py:106 .\templates\client\view_client.html:102
+#: .\templates\header.html:18 .\templates\order\all_orders.html:4
+#: .\templates\order\all_orders.html:8
 msgid "Orders"
 msgstr "Заказы"
 
@@ -366,22 +382,21 @@ msgstr "Заказы"
 msgid "%s, Order #%s, created on: %s, sum: %s"
 msgstr "%s, Заказ #%s, создан: %s, сумма: %s"
 
-#: .\Order\models.py:125
+#: .\Order\models.py:136
 msgid "Material quantity"
 msgstr "Количество материала"
 
-#: .\Order\models.py:132
+#: .\Order\models.py:143
 msgid "Order material"
 msgstr "Материал заказа"
 
-#: .\Order\models.py:133 .\templates\order\view_order.html:67
+#: .\Order\models.py:144
 msgid "Order materials"
 msgstr "Материалы заказа"
 
 #: .\ServicePrice\models.py:15 .\templates\material\all_materials.html:18
 #: .\templates\material\view_category.html:17
 #: .\templates\material\view_material.html:36
-#: .\templates\order\view_order.html:74
 #: .\templates\service\all_services.html:14
 #: .\templates\service\view_service.html:19
 msgid "Price"
@@ -401,25 +416,40 @@ msgstr "Комментарий"
 
 #: .\Service\models.py:17 .\templates\employee\all_employees.html:17
 #: .\templates\employee\view_employee.html:69 .\templates\header.html:50
+#: .\templates\service\all_services.html:4
+#: .\templates\service\all_services.html:8
 msgid "Services"
 msgstr "Услуги"
-
-#: .\templates\client\all_clients.html:4 .\templates\client\all_clients.html:8
-msgid "All clients"
-msgstr "Все клиенты"
 
 #: .\templates\client\view_client.html:9
 #: .\templates\employee\view_employee.html:17
 #: .\templates\material\view_category.html:7
 #: .\templates\material\view_material.html:7
-#: .\templates\order\view_order.html:7 .\templates\service\view_service.html:7
+#: .\templates\service\view_service.html:7
 msgid "Previous page"
 msgstr "Предыдущая страница"
 
-#: .\templates\employee\all_employees.html:4
-#: .\templates\employee\all_employees.html:8
-msgid "All employees"
-msgstr "Все сотрудники"
+#: .\templates\client\view_client.html:107
+#: .\templates\order\all_orders.html:13
+msgid "#"
+msgstr ""
+
+#: .\templates\client\view_client.html:126
+#: .\templates\employee\all_employees.html:38
+#: .\templates\employee\view_employee.html:38
+#: .\templates\employee\view_employee.html:48
+#: .\templates\employee\view_employee.html:64
+#: .\templates\employee\view_employee.html:76
+#: .\templates\order\all_orders.html:35 .\templates\order\all_orders.html:42
+#: .\templates\order\all_orders.html:49
+msgid "Undefinedd"
+msgstr "Не определено"
+
+#: .\templates\client\view_client.html:135
+#, fuzzy
+#| msgid "There are not any order materials"
+msgid "The client has not made any order"
+msgstr "В заказе нет материалов"
 
 #: .\templates\employee\all_employees.html:15
 #: .\templates\employee\view_employee.html:53
@@ -432,16 +462,6 @@ msgstr "Имя пользователя"
 #: .\templates\service\view_service.html:38
 msgid "Work experience (years)"
 msgstr "Опыт работы (лет)"
-
-#: .\templates\employee\all_employees.html:38
-#: .\templates\employee\view_employee.html:38
-#: .\templates\employee\view_employee.html:48
-#: .\templates\employee\view_employee.html:64
-#: .\templates\employee\view_employee.html:76
-#: .\templates\order\all_orders.html:35 .\templates\order\all_orders.html:42
-#: .\templates\order\all_orders.html:49
-msgid "Undefinedd"
-msgstr "Не определено"
 
 #: .\templates\employee\all_employees.html:51
 #: .\templates\employee\view_employee.html:90
@@ -477,19 +497,9 @@ msgstr "Выйти"
 msgid "Sign in"
 msgstr "Войти"
 
-#: .\templates\material\all_categories.html:4
-#: .\templates\material\all_categories.html:8
-msgid "All materials categories"
-msgstr "Все категории материалов"
-
 #: .\templates\material\all_categories.html:14
 msgid "Quantity"
 msgstr "Количество"
-
-#: .\templates\material\all_materials.html:4
-#: .\templates\material\all_materials.html:8
-msgid "All materials"
-msgstr "Все материалы"
 
 #: .\templates\material\view_category.html:9
 msgid "Materials in category"
@@ -514,22 +524,6 @@ msgstr "Новая цена"
 msgid "There are not any price changes"
 msgstr "Изменения цены отсутствуют"
 
-#: .\templates\order\all_orders.html:4 .\templates\order\all_orders.html:8
-msgid "All orders"
-msgstr "Все заказы"
-
-#: .\templates\order\all_orders.html:13
-msgid "#"
-msgstr ""
-
-#: .\templates\order\view_order.html:75
-msgid "Quantity (meters or pieces)"
-msgstr "Количество (м или шт.)"
-
-#: .\templates\order\view_order.html:96
-msgid "There are not any order materials"
-msgstr "В заказе нет материалов"
-
 #: .\templates\registration\login.html:17
 msgid "Authorization"
 msgstr "Авторизация"
@@ -552,11 +546,6 @@ msgstr "Пароль"
 msgid "Enter password"
 msgstr "Введите пароль"
 
-#: .\templates\service\all_services.html:4
-#: .\templates\service\all_services.html:8
-msgid "All services"
-msgstr "Все услуги"
-
 #: .\templates\service\all_services.html:15
 msgid "Quantity of employees"
 msgstr "Количество сотрудников"
@@ -564,6 +553,27 @@ msgstr "Количество сотрудников"
 #: .\templates\service\view_service.html:60
 msgid "No one provides this service"
 msgstr "Данную услугу никто не предоставляет"
+
+#~ msgid "All clients"
+#~ msgstr "Все клиенты"
+
+#~ msgid "All employees"
+#~ msgstr "Все сотрудники"
+
+#~ msgid "All materials categories"
+#~ msgstr "Все категории материалов"
+
+#~ msgid "All materials"
+#~ msgstr "Все материалы"
+
+#~ msgid "All orders"
+#~ msgstr "Все заказы"
+
+#~ msgid "Quantity (meters or pieces)"
+#~ msgstr "Количество (м или шт.)"
+
+#~ msgid "All services"
+#~ msgstr "Все услуги"
 
 #~ msgid "Work experience"
 #~ msgstr "Опыт работы"

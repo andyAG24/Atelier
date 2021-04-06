@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.contrib.auth.decorators import login_required
 from .models import Client
+from Order.views import get_client_orders
 
 @login_required(login_url='auth')
 def all_clients(request):
@@ -18,5 +19,6 @@ def view_client(request, id):
     context['client'] = {
         'client_object': client_object
     }
+    context['orders'] = get_client_orders(id)
     return render(request, 'client/view_client.html', context)
     

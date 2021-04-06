@@ -3,12 +3,16 @@ from django.utils.translation import ugettext_lazy as _
 from Order.models import Order
 
 class Fitting(models.Model):
+    class FittingStatus(models.TextChoices):
+        CREATED = 'Created', _('Created')
+        CLIENT_IS_CALLED = 'The client is called for fitting', _('The client is called for fitting')
+        PRODUCT_FITS_IN_SIZE = 'The product fits in size', _('The product fits in size')
+        THERE_ARE_FLAWS = 'There are flaws', _('There are flaws') 
+
     id_order = models.ForeignKey(Order,
                                  models.CASCADE,
                                  db_column='id_Order',
-                                 verbose_name=_('Order'),
-                                 blank=True,
-                                 null=True)
+                                 verbose_name=_('Order'))
     index_number = models.IntegerField(db_column='Index number',
                                        verbose_name=_('Index number'),
                                        blank=True,
@@ -19,9 +23,9 @@ class Fitting(models.Model):
                                 null=True)
     status = models.CharField(db_column='Status',
                               verbose_name=_('Status'),
-                              max_length=255,
-                              blank=True,
-                              null=True)
+                              max_length=32,
+                              choices=FittingStatus.choices,
+                              default=FittingStatus.CREATED)
 
     class Meta:
         managed = False

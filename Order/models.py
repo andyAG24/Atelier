@@ -106,7 +106,18 @@ class Order(models.Model):
         verbose_name_plural = _('Orders')
 
     def __str__(self):
-        return _('%s, Order #%s, created on: %s, sum: %s') % (self.status, self.id, self.start_date, self.cost)
+        return _('%s, Order #%s, created on: %s, sum: %s') % (get_localized_status(self.status), self.id, self.start_date, self.cost)
+
+def get_localized_status(status):
+    order_statuses = {
+        'Created': _('Created'),
+        'Cancelled': _('Cancelled'),
+        'In progress': _('In progress'),
+        'Completed': _('Completed'),
+        'Passed to the client': _('Passed to the client'),
+        'Returned for rework': _('Returned for rework')
+    }
+    return order_statuses[status]
 
 class OrderMaterials(models.Model):
     id_order = models.ForeignKey(Order,
