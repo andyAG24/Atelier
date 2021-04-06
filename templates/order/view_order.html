@@ -1,0 +1,103 @@
+{% extends 'base.html' %}
+{% load i18n %}
+
+{% block title %}{% trans "Order" %} #{{ order.order_object.id }}{% endblock %}
+
+{% block content %}
+<a class="btn btn-link" href="{{request.META.HTTP_REFERER}}">← {% trans 'Previous page' %}</a>
+
+<h1>{% trans "Order" %} #{{ order.order_object.id }}</h1>
+<div class="table-responsive mt-3">
+    <table class="table">
+        <tbody>
+            <tr>
+                <th scope="row">{% trans "Status" %}</th>
+                <td>{{ order.order_object.status }}</td>
+            </tr>
+            <tr>
+                <th scope="row">{% trans "Payment status" %}</th>
+                <td>{{ order.order_object.payment_status }}</td>
+            </tr>
+            <tr>
+                <th scope="row">{% trans "Prepayment" %}</th>
+                <td>{{ order.order_object.prepayment }}</td>
+            </tr>
+            <tr>
+                <th scope="row">{% trans "Cost" %}</th>
+                <td>{{ order.order_object.cost }}</td>
+            </tr>
+            <tr>   
+                <th scope="row">{% trans "Start date" %}</th>
+                <td>{{ order.order_object.start_date }}</td>
+            </tr>
+            <tr>
+                <th scope="row">{% trans "End date" %}</th>
+                <td>{{ order.order_object.end_date }}</td>
+            </tr>
+            <tr>
+                <th scope="row">{% trans "Client" %}</th>
+                <td>
+                    <a href="{% url 'view_client' id=order.order_object.id_client.id %}">{{ order.order_object.id_client }}</a>
+                </td>
+            </tr>
+            <tr>
+                <th scope="row">{% trans "Employee" %}</th>
+                <td>
+                    <a href="{% url 'view_employee' id=order.order_object.id_employee.user.id %}">{{ order.order_object.id_employee }}</a>
+                </td>
+            </tr>
+            <tr>
+                <th scope="row">{% trans "Urgency" %}</th>
+                <td>{{ order.order_object.urgency }}</td>
+            </tr>
+            <tr>
+                <th scope="row">{% trans "Labour intensity" %}</th>
+                <td>{{ order.order_object.labour_intensity }}</td>
+            </tr>
+            {% if order.order_object.comment %}
+                <tr>
+                    <th scope="row">{% trans "Comment" %}</th>
+                    <td>{{ order.order_object.comment }}</td>
+                </tr>
+            {% endif %}
+        </tbody>
+    </table>
+</div>
+
+<h4>{% trans "Order materials" %}</h4>
+<div class="table-responsive mt-3">
+    <table class="table">
+        <thead class="thead-dark">
+            <tr>
+                <th scope="col">{% trans "Name" %}</th>
+                <th scope="col">{% trans "Category" %}</th>
+                <th scope="col">{% trans "Price" %}</th>
+                <th scope="col">{% trans "Quantity (meters or pieces)" %}</th>
+                <th scope="col">{% trans "Cost" %}</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% if order.materials %}
+                {% for material in order.materials %}
+                    <tr>
+                        <td>
+                            <a href="{% url 'view_material' id=material.material_object.id %}">{{ material.material_object.name }}</a>
+                        </td>
+                        <td>
+                            <a href="{% url 'view_category' id=material.material_object.id_category.id %}">{{ material.material_object.id_category }}</a>
+                        </td>
+                        <td>{{ material.price }}</td>
+                        <td>{{ material.quantity }}</td>
+                        <td>{{ material.cost }}</td>
+                    </tr>
+                {% endfor %}
+            {% else %}
+                <tr>
+                    <td colspan="3" class="text-center font-italic">{% trans "There are not any order materials" %}</td>
+                </tr> 
+            {% endif %}
+        </tbody>
+    </table>
+</div>
+
+{% endblock %}

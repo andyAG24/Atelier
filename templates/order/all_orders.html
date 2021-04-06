@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+{% load i18n %}
+
+{% block title %}{% trans "All orders" %}{% endblock %}
+
+{% block content %}
+
+<h1>{% trans "All orders" %}</h1>
+<div class="table-responsive mt-3">
+    <table class="table">
+        <thead class="thead-dark">
+            <tr>
+                <th scope="col">{% trans "#" %}</th>
+                <th scope="col">{% trans "Status" %}</th>
+                <th scope="col">{% trans "Payment status" %}</th>
+                <th scope="col">{% trans "Employee" %}</th>
+                <th scope="col">{% trans "Client" %}</th>
+                <th scope="col">{% trans "Service" %}</th>
+                <th scope="col">{% trans "Start date" %}</th>
+                <th scope="col">{% trans "Cost" %}</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for order in orders %}
+                <tr>
+                    <th scope="row">
+                        <a href="{% url 'view_order' id=order.id %}">{{ order.id }}</a>
+                    </th>
+                    <td>{{ order.status }}</td>
+                    <td>{{ order.payment_status }}</td>
+                    <td>
+                        {% if order.id_employee %}
+                            <a href="{% url 'view_employee' id=order.id_employee.user.id %}">{{ order.id_employee }}</a>
+                        {% else %}
+                            {% trans "Undefinedd" %}
+                        {% endif %}
+                    </td>
+                    <td>
+                        {% if order.id_client %}
+                            <a href="{% url 'view_client' id=order.id_client.id %}">{{ order.id_client }}</a>
+                        {% else %}
+                            {% trans "Undefinedd" %}
+                        {% endif %}
+                    </td>
+                    <td>
+                        {% if order.id_service %}
+                            <a href="{% url 'view_service' id=order.id_service.id %}">{{ order.id_service }}</a>
+                        {% else %}
+                            {% trans "Undefinedd" %}
+                        {% endif %}
+                    </td>
+                    <td>{{ order.start_date }}</td>
+                    <td>{{ order.cost }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

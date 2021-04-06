@@ -17,7 +17,7 @@
             </tr>
             <tr>
                 <th scope="row">{% trans "Price" %}</th>
-                <td>{{ service_price }}</td>
+                <td>{{ current_service_price }}</td>
             </tr>
             {% if service.comment %}
                 <tr>
@@ -84,7 +84,7 @@
                 {% endfor %}
             {% else %}
                 <tr>
-                    <td colspan="2" class="text-center font-italic">{% trans "There isn't price changes" %}</td>
+                    <td colspan="2" class="text-center font-italic">{% trans "There are not any price changes" %}</td>
                 </tr> 
             {% endif %}
         </tbody>

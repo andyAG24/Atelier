@@ -30,7 +30,7 @@ def view_service(request, id):
     service = Service.objects.get(id=id)
     context['service'] = service
     context['service_prices'] = get_price_history(service.id)
-    context['service_price'] = get_current_price(service.id)
+    context['current_service_price'] = get_current_price(service.id)
 
     employee_service = EmployeeServices.objects.filter(id_service=id)
     
