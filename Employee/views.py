@@ -2,6 +2,7 @@ from django.shortcuts import render
 from django.contrib.auth.decorators import login_required
 from Service.models import Service
 from .models import Employee, EmployeeServices
+from Order.views import get_employee_orders
 
 @login_required(login_url='auth')
 def all_employees(request):
@@ -39,6 +40,8 @@ def view_employee(request, id):
     employee = Employee.objects.get(user=id)
     context['employee'] = employee
     context['employee_services'] = get_employee_services(employee)
+
+    context['employee_orders'] = get_employee_orders(id)
 
     return render(request, 'employee/view_employee.html', context)
 

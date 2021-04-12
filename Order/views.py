@@ -59,6 +59,19 @@ def get_client_orders(id):
         })
     return orders_list
 
+def get_employee_orders(id):
+    orders = Order.objects.filter(id_employee=id)
+    orders_list = []
+    for order in orders:
+        orders_list.append({
+            'order_object': order,
+            'localized_status': get_localized_status(order.status),
+            'localized_payment_status': get_localized_payment_status(order.payment_status),
+            'localized_urgency': get_localized_urgency(order.urgency),
+            'localized_labour_intensity': get_localized_labour_intensity(order.labour_intensity),
+        })
+    return orders_list
+
 def get_order_materials(id_order):
     order_materials_object = OrderMaterials.objects.filter(id_order=id_order)
 
@@ -114,3 +127,9 @@ def get_localized_labour_intensity(labour_intensity):
     }
     return labour_intensities[labour_intensity]
 
+def add_order(request):
+    context = {}
+    context['user_group'] = request.user.groups.all()[0].name
+
+    return render(request, 'order/add_order.html', context)
+    

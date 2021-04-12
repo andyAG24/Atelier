@@ -94,4 +94,45 @@
         </tbody>
     </table>
 </div>
+
+<h4>{% trans "Orders" %}</h4>
+<div class="table-responsive mt-3">
+    <table class="table">
+        <thead class="thead-dark">
+            <tr>
+                <th scope="col">{% trans "#" %}</th>
+                <th scope="col">{% trans "Status" %}</th>
+                <th scope="col">{% trans "Service" %}</th>
+                <th scope="col">{% trans "Start date" %}</th>
+                <th scope="col">{% trans "Cost" %}</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% if employee_orders %}
+                {% for order in employee_orders %}
+                    <tr>
+                        <td>
+                            <a href="{% url 'view_order' id=order.order_object.id %}">{{ order.order_object.id }}</a>
+                        </td>
+                        <td>{{ order.localized_status }}</td>
+                        <td>
+                            {% if order.order_object.id_service %}
+                                <a href="{% url 'view_service' id=order.order_object.id_service.id %}">{{ order.order_object.id_service }}</a>
+                            {% else %}
+                                <i>{% trans "Undefinedd" %}</i>
+                            {% endif %}
+                        </td>
+                        <td>{{ order.order_object.start_date }}</td>
+                        <td>{{ order.order_object.cost }}</td>
+                    </tr>
+                {% endfor %}
+            {% else %}
+                <tr>
+                    <td colspan="5" class="text-center font-italic">{% trans "The employee does not fulfill any order" %}</td>
+                </tr> 
+            {% endif %}
+        </tbody>
+    </table>
+</div>
+
 {% endblock %}

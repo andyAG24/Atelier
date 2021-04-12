@@ -4,7 +4,7 @@
 {% block title %}{% trans "Order" %} #{{ order.order_object.id }}{% endblock %}
 
 {% block content %}
-<a class="btn btn-link" href="{{request.META.HTTP_REFERER}}">← {% trans 'Previous page' %}</a>
+<a class="btn btn-link" href="{{request.META.HTTP_REFERER}}">← {% trans 'Previous pagee' %}</a>
 
 <h1>{% trans "Order" %} #{{ order.order_object.id }}</h1>
 <div class="table-responsive mt-3">
@@ -21,7 +21,7 @@
                 </td>
             </tr>
             <tr>
-                <th scope="row">{% trans "Status" %}</th>
+                <th scope="row">{% trans "Statuss" %}</th>
                 <td>{{ order.localized_status }}</td>
             </tr>
             <tr>
@@ -117,7 +117,7 @@
             <tr>
                 <th scope="col">{% trans "Index number" %}</th>
                 <th scope="col">{% trans "Date" %}</th>
-                <th scope="col">{% trans "Status" %}</th>
+                <th scope="col">{% trans "Statuss" %}</th>
             </tr>
         </thead>
         <tbody>
@@ -131,7 +131,7 @@
                 {% endfor %}
             {% else %}
                 <tr>
-                    <td colspan="3" class="text-center font-italic">{% trans "There was not any fitting" %}</td>
+                    <td colspan="3" class="text-center font-italic">{% trans "There was not any fittings" %}</td>
                 </tr> 
             {% endif %}
         </tbody>

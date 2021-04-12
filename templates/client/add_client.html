@@ -1,0 +1,92 @@
+{% extends 'base.html' %}
+{% load i18n %}
+
+{% block title %}{% trans "New client" %}{% endblock %}
+
+{% block content %}
+<a class="btn btn-link" href="{{request.META.HTTP_REFERER}}">← {% trans 'Previous page' %}</a>
+
+<h1>{% trans "New client" %}</h1>
+
+{% if error %}
+    <div class="alert alert-danger" role="alert">{{ error }}</div>
+{% endif %}
+<form class="mt-4" method="POST">
+    {% csrf_token %}
+    <h4>{% trans "Contact details" %}</h4>
+    <div class="form-row mb-3">
+        <div class="col-md-4 mb-3">
+            <label for="id_first_name">{% trans "First name" %}</label>
+            {{ form.first_name }}
+        </div>
+        <div class="col-md-4 mb-3">
+            <label for="id_last_name">{% trans "Last name" %}</label>
+            {{ form.last_name }}
+        </div>
+      <div class="col-md-4 mb-3">
+        <label for="id_phone">{% trans "Phone" %}</label>
+        <div class="input-group">
+            <div class="input-group-prepend">
+                <span class="input-group-text" id="inputGroupPrepend2">+</span>
+            </div>
+            {{ form.phone }}
+        </div>
+      </div>
+    </div>
+    <h4>{% trans "Body" %}</h4>
+    <div class="form-row mb-3">
+        <div class="col-md-2 mb-3">
+            <label for="id_height">{% trans "Height" %}</label>
+            {{ form.height }}
+        </div>
+        <div class="col-md-2 mb-3">
+            <label for="id_chest_girth">{% trans "Chest girth" %}</label>
+            {{ form.chest_girth }}
+        </div>
+        <div class="col-md-2 mb-3">
+            <label for="id_chest_height">{% trans "Chest height" %}</label>
+            {{ form.chest_height }}
+        </div>
+        <div class="col-md-2 mb-3">
+            <label for="id_waist_girth">{% trans "Waist girth" %}</label>
+            {{ form.waist_girth }}
+        </div>
+        <div class="col-md-2 mb-3">
+            <label for="id_neck_girth">{% trans "Neck girth" %}</label>
+            {{ form.neck_girth }}
+        </div>
+        <div class="col-md-2 mb-3">
+            <label for="id_back_width">{% trans "Back width" %}</label>
+            {{ form.back_width }}
+        </div>
+    </div>
+    <h4>{% trans "Hands" %}</h4>
+    <div class="form-row mb-3">
+        <div class="col-md-3 mb-3">
+            <label for="id_shoulder_girth">{% trans "Shoulder girth" %}</label>
+            {{ form.shoulder_girth }}
+        </div>
+        <div class="col-md-3 mb-3">
+            <label for="id_hand_girth">{% trans "Hand girth" %}</label>
+            {{ form.hand_girth }}
+        </div>
+        <div class="col-md-3 mb-3">
+            <label for="id_hand_length">{% trans "Hand length" %}</label>
+            {{ form.hand_length }}
+        </div>
+    </div>
+    <h4>{% trans "Feet" %}</h4>
+    <div class="form-row mb-3">
+        <div class="col-md-3 mb-3">
+            <label for="id_hip_girth">{% trans "Hip girth" %}</label>
+            {{ form.hip_girth }}
+        </div>
+        <div class="col-md-3 mb-3">
+            <label for="id_length_waist_floor">{% trans "Length waist-floor" %}</label>
+            {{ form.length_waist_floor }}
+        </div>
+    </div>
+    <button class="btn btn-primary" type="submit">{% trans "Save" %}</button>
+  </form>
+
+{% endblock %}
