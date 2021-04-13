@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-04-12 17:47+0300\n"
+"POT-Creation-Date: 2021-04-13 13:40+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -36,16 +36,16 @@ msgid "Ivanov"
 msgstr ""
 
 #: .\Client\models.py:6 .\templates\client\add_client.html:19
-#: .\templates\client\all_clients.html:14
-#: .\templates\client\view_client.html:23
+#: .\templates\client\all_clients.html:15
+#: .\templates\client\view_client.html:25
 #: .\templates\employee\all_employees.html:14
 #: .\templates\employee\view_employee.html:43
 msgid "First name"
 msgstr ""
 
 #: .\Client\models.py:9 .\templates\client\add_client.html:23
-#: .\templates\client\all_clients.html:13
-#: .\templates\client\view_client.html:17
+#: .\templates\client\all_clients.html:14
+#: .\templates\client\view_client.html:19
 #: .\templates\employee\all_employees.html:13
 #: .\templates\employee\view_employee.html:33
 msgid "Last name"
@@ -53,65 +53,65 @@ msgstr ""
 
 #: .\Client\models.py:12 .\Employee\models.py:26
 #: .\templates\client\add_client.html:27
-#: .\templates\client\all_clients.html:15
-#: .\templates\client\view_client.html:29
+#: .\templates\client\all_clients.html:16
+#: .\templates\client\view_client.html:31
 #: .\templates\employee\all_employees.html:18
 #: .\templates\employee\view_employee.html:81
 msgid "Phone"
 msgstr ""
 
 #: .\Client\models.py:15 .\templates\client\add_client.html:39
-#: .\templates\client\view_client.html:34
+#: .\templates\client\view_client.html:36
 msgid "Height"
 msgstr ""
 
 #: .\Client\models.py:19 .\templates\client\add_client.html:43
-#: .\templates\client\view_client.html:40
+#: .\templates\client\view_client.html:42
 msgid "Chest girth"
 msgstr ""
 
 #: .\Client\models.py:23 .\templates\client\add_client.html:47
-#: .\templates\client\view_client.html:46
+#: .\templates\client\view_client.html:48
 msgid "Chest height"
 msgstr ""
 
 #: .\Client\models.py:27 .\templates\client\add_client.html:51
-#: .\templates\client\view_client.html:52
+#: .\templates\client\view_client.html:54
 msgid "Waist girth"
 msgstr ""
 
 #: .\Client\models.py:31 .\templates\client\add_client.html:81
-#: .\templates\client\view_client.html:58
+#: .\templates\client\view_client.html:60
 msgid "Hip girth"
 msgstr ""
 
 #: .\Client\models.py:35 .\templates\client\add_client.html:55
-#: .\templates\client\view_client.html:64
+#: .\templates\client\view_client.html:66
 msgid "Neck girth"
 msgstr ""
 
 #: .\Client\models.py:39 .\templates\client\add_client.html:66
-#: .\templates\client\view_client.html:70
+#: .\templates\client\view_client.html:72
 msgid "Shoulder girth"
 msgstr ""
 
 #: .\Client\models.py:43 .\templates\client\add_client.html:70
-#: .\templates\client\view_client.html:76
+#: .\templates\client\view_client.html:78
 msgid "Hand girth"
 msgstr ""
 
 #: .\Client\models.py:47 .\templates\client\add_client.html:74
-#: .\templates\client\view_client.html:82
+#: .\templates\client\view_client.html:84
 msgid "Hand length"
 msgstr ""
 
 #: .\Client\models.py:51 .\templates\client\add_client.html:59
-#: .\templates\client\view_client.html:88
+#: .\templates\client\view_client.html:90
 msgid "Back width"
 msgstr ""
 
 #: .\Client\models.py:55 .\templates\client\add_client.html:85
-#: .\templates\client\view_client.html:94
+#: .\templates\client\view_client.html:96
 msgid "Length waist-floor"
 msgstr ""
 
@@ -201,7 +201,7 @@ msgid "Date"
 msgstr ""
 
 #: .\Fitting\models.py:25 .\Order\models.py:44
-#: .\templates\client\view_client.html:108
+#: .\templates\client\view_client.html:110
 #: .\templates\employee\view_employee.html:104
 #: .\templates\order\all_orders.html:14
 msgid "Status"
@@ -364,7 +364,7 @@ msgid "Paid"
 msgstr ""
 
 #: .\Order\models.py:40 .\ServicePrice\models.py:11 .\Service\models.py:16
-#: .\templates\client\view_client.html:109
+#: .\templates\client\view_client.html:111
 #: .\templates\employee\view_employee.html:105
 #: .\templates\order\all_orders.html:18
 #: .\templates\service\view_service.html:4
@@ -381,14 +381,14 @@ msgstr ""
 msgid "Prepayment"
 msgstr ""
 
-#: .\Order\models.py:61 .\templates\client\view_client.html:111
+#: .\Order\models.py:61 .\templates\client\view_client.html:113
 #: .\templates\employee\view_employee.html:107
 #: .\templates\order\all_orders.html:20 .\templates\order\view_order.html:36
 #: .\templates\order\view_order.html:86
 msgid "Cost"
 msgstr ""
 
-#: .\Order\models.py:67 .\templates\client\view_client.html:110
+#: .\Order\models.py:67 .\templates\client\view_client.html:112
 #: .\templates\employee\view_employee.html:106
 #: .\templates\order\all_orders.html:19 .\templates\order\view_order.html:40
 msgid "Start date"
@@ -406,7 +406,7 @@ msgstr ""
 msgid "Urgency"
 msgstr ""
 
-#: .\Order\models.py:106 .\templates\client\view_client.html:102
+#: .\Order\models.py:106 .\templates\client\view_client.html:104
 #: .\templates\employee\view_employee.html:98 .\templates\header.html:18
 #: .\templates\order\all_orders.html:4 .\templates\order\all_orders.html:8
 msgid "Orders"
@@ -458,6 +458,7 @@ msgid "Services"
 msgstr ""
 
 #: .\templates\client\add_client.html:4 .\templates\client\add_client.html:9
+#: .\templates\client\all_clients.html:9 .\templates\header.html:49
 msgid "New client"
 msgstr ""
 
@@ -489,13 +490,17 @@ msgstr ""
 msgid "Save"
 msgstr ""
 
-#: .\templates\client\view_client.html:107
+#: .\templates\client\view_client.html:13
+msgid "Edit"
+msgstr ""
+
+#: .\templates\client\view_client.html:109
 #: .\templates\employee\view_employee.html:103
 #: .\templates\order\all_orders.html:13
 msgid "#"
 msgstr ""
 
-#: .\templates\client\view_client.html:126
+#: .\templates\client\view_client.html:128
 #: .\templates\employee\all_employees.html:38
 #: .\templates\employee\view_employee.html:38
 #: .\templates\employee\view_employee.html:48
@@ -507,8 +512,25 @@ msgstr ""
 msgid "Undefinedd"
 msgstr ""
 
-#: .\templates\client\view_client.html:135
+#: .\templates\client\view_client.html:137
 msgid "The client has not made any order"
+msgstr ""
+
+#: .\templates\client\view_client.html:146
+#: .\templates\client\view_client.html:164
+msgid "Delete client"
+msgstr ""
+
+#: .\templates\client\view_client.html:154
+msgid "Confirmation required"
+msgstr ""
+
+#: .\templates\client\view_client.html:160
+msgid "Are you sure that you want to delete client"
+msgstr ""
+
+#: .\templates\client\view_client.html:163
+msgid "Cancel"
 msgstr ""
 
 #: .\templates\employee\all_employees.html:15
@@ -545,9 +567,8 @@ msgstr ""
 msgid "View orders"
 msgstr ""
 
-#: .\templates\header.html:23 .\templates\order\add_order.html:4
-#: .\templates\order\add_order.html:9
-msgid "Add order"
+#: .\templates\header.html:23
+msgid "New order"
 msgstr ""
 
 #: .\templates\header.html:33
@@ -560,10 +581,6 @@ msgstr ""
 
 #: .\templates\header.html:47
 msgid "View clients"
-msgstr ""
-
-#: .\templates\header.html:49
-msgid "Add client"
 msgstr ""
 
 #: .\templates\header.html:72
@@ -603,6 +620,10 @@ msgstr ""
 #: .\templates\material\view_material.html:68
 #: .\templates\service\view_service.html:87
 msgid "There are not any price changes"
+msgstr ""
+
+#: .\templates\order\add_order.html:4 .\templates\order\add_order.html:9
+msgid "Add order"
 msgstr ""
 
 #: .\templates\order\view_order.html:7 .\templates\service\view_service.html:7

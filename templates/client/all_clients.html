@@ -6,6 +6,7 @@
 {% block content %}
 
 <h1>{% trans "Clients" %}</h1>
+<a href="{% url 'add_client' %}" class="btn btn-primary">{% trans "New client" %}</a>
 <div class="table-responsive mt-3">
     <table class="table">
         <thead class="thead-dark">

@@ -1,7 +1,7 @@
 from django import forms
 from django.forms import ModelForm, TextInput, NumberInput
-from .models import Client
 from django.utils.translation import ugettext_lazy as _
+from .models import Client
 
 class ClientForm(ModelForm):
     class Meta:
