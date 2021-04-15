@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% load i18n %}
+
+{% block title %}{% trans "New material" %}{% endblock %}
+
+{% block content %}
+<a class="btn btn-link" href="{{request.META.HTTP_REFERER}}">← {% trans 'Previous page' %}</a>
+
+<h1>{% trans "New category" %}</h1>
+
+{% if error %}
+    <div class="alert alert-danger" role="alert">{{ error }}</div>
+{% endif %}
+<form class="mt-4" method="POST">
+    {% csrf_token %}
+    <div class="form-row mb-2 mt-2">
+        <div class="col-md-4 mb-3">
+            <label for="id_name">{% trans "Name" %}</label>
+            {{ form.name }}
+        </div>
+    </div>
+    
+    <div class="form-row mb-3">
+        <div class="col-md-12 mb-3">
+            <label for="id_comment">{% trans "Comment" %}</label>
+            {{ form.comment }}
+        </div>
+    </div>
+    
+    <button class="btn btn-success" type="submit">{% trans "Save" %}</button>
+</form>
+
+{% endblock %}

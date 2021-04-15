@@ -6,7 +6,11 @@
 {% block content %}
 
 <h1>{% trans "Materials" %}</h1>
-<a href="{% url 'add_material' %}" class="btn btn-primary">{% trans "New material" %}</a>
+
+{% if user_group == 'Managers' %}
+    <a href="{% url 'add_material' %}" class="btn btn-primary">{% trans "New material" %}</a>
+{% endif %}
+
 <div class="table-responsive mt-3">
     <table class="table">
         <thead class="thead-dark">
@@ -26,7 +30,11 @@
                         <a href="{% url 'view_material' id=item.material.id %}">{{ item.material.name }}</a>
                     </th>
                     <td>
-                        <a href="{% url 'view_category' id=item.material.id_category.id %}">{{ item.material.id_category }}</a>
+                        {% if item.material.id_category %}
+                            <a href="{% url 'view_category' id=item.material.id_category.id %}">{{ item.material.id_category }}</a>
+                        {% else %}
+                            <i>{% trans "Undefinedd" %}</i>
+                        {% endif %}
                     </td>
                     <td>{{ item.material.color }}</td>
                     <td>{{ item.material.vendor_code }}</td>

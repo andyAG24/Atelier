@@ -105,7 +105,10 @@ class EditMaterialView(UpdateView):
 
         current_price = MaterialPrice.objects.filter(id_material=self.object.id).order_by('-modification_date')[0]
         if 'price' in request.POST:
-            new_price = float(request.POST['price'])
+            if request.POST['price'] != '':
+                new_price = float(request.POST['price'])
+            else:
+                new_price = float(0)
             if new_price != current_price.price:
                 new_material_price = MaterialPrice(id_material=self.object, price=new_price, modification_date=datetime.now())
                 new_material_price.save()

@@ -1,0 +1,90 @@
+{% extends 'base.html' %}
+{% load i18n %}
+
+{% block title %}{{ category_name }}{% endblock %}
+
+{% block content %}
+<a class="btn btn-link" href="{{request.META.HTTP_REFERER}}">← {% trans 'Previous page' %}</a>
+
+<h1>{% trans "Category" %} {{ category.name }}</h1>
+
+{% if user_group == 'Managers' %}
+    <a href="{% url 'edit_material_category' pk=category.id %}" class="btn btn-info">{% trans "Edit" %}</a>
+{% endif %}
+
+{% if category.comment %}
+    <div class="table-responsive mt-3">
+        <table class="table">
+            <tbody>
+                <tr>
+                    <th scope="row">{% trans "Comment" %}</th>
+                    <td>{{ category.comment }}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+{% endif %}
+
+<h4>{% trans "Materials in category" %}</h4>
+<div class="table-responsive mt-3">
+    <table class="table">
+        <thead class="thead-dark">
+            <tr>
+                <th scope="row">{% trans "Name" %}</th>
+                <th scope="col">{% trans "Color" %}</th>
+                <th scope="col">{% trans "Vendor code" %}</th>
+                <th scope="col">{% trans "Price" %}</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% if category_materials %}
+                {% for material in category_materials %}
+                    <tr>
+                        <th scope="col">
+                            <a href="{% url 'view_material' id=material.material.id %}">{{ material.material.name }}</a>
+                        </th>
+                        <td>{{ material.material.color }}</td>
+                        <td>{{ material.material.vendor_code }}</td>
+                        <td>{{ material.price }}</td>
+                    </tr>
+                {% endfor %}
+            {% else %}
+                <tr>
+                    <td colspan="4" class="text-center font-italic">{% trans "There are not any materials in the category" %}</td>
+                </tr> 
+            {% endif %}
+        </tbody>
+    </table>
+</div>
+
+{% if user_group == 'Managers' %}
+    <!-- Button trigger modal -->
+    <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#deleteConfirmationModal">
+        {% trans "Delete category" %}
+    </button>
+    
+    <!-- Delete Confirmation Modal -->
+    <div class="modal fade" id="deleteConfirmationModal" tabindex="-1" role="dialog" aria-labelledby="deleteConfirmationModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="deleteConfirmationModalLabel">{% trans "Confirmation required" %}</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    {% trans "Are you sure that you want to delete category" %} - {{ category.name }}?
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-success" data-dismiss="modal">{% trans "Cancel" %}</button>
+                    <a href="{% url 'delete_category' id=category.id %}" class="btn btn-danger">
+                        {% trans "Delete category" %}
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endif %}
+
+{% endblock %}
