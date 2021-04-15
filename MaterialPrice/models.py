@@ -28,4 +28,7 @@ class MaterialPrice(models.Model):
 
     def __str__(self):
         return f"{self.id_material.name}, {self.modification_date}, {self.price}"
+
+    def get_absolute_url(self):
+        return f'/materials/view/{self.id}'
         

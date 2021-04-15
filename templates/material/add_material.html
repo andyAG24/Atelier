@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+{% load i18n %}
+
+{% block title %}{% trans "New material" %}{% endblock %}
+
+{% block content %}
+<a class="btn btn-link" href="{{request.META.HTTP_REFERER}}">← {% trans 'Previous page' %}</a>
+
+<h1>{% trans "New material" %}</h1>
+
+{% if error %}
+    <div class="alert alert-danger" role="alert">{{ error }}</div>
+{% endif %}
+<form class="mt-4" method="POST">
+    {% csrf_token %}
+    <h4>{% trans "Material's information" %}</h4>
+    <div class="form-row mb-2 mt-2">
+        <div class="col-md-4 mb-3">
+            <label for="id_name">{% trans "Name" %}</label>
+            {{ form.name }}
+        </div>
+        <div class="col-md-4 mb-3">
+            <label for="id_vendor_code">{% trans "Vendor code" %}</label>
+            {{ form.vendor_code }}
+        </div>
+        <div class="col-md-4 mb-3">
+            <label for="id_color">{% trans "Color" %}</label>
+            {{ form.color }}
+        </div>
+    </div>
+    <div class="form-row mb-2">
+        
+        <div class="col-md-4 mb-3">
+            <label for="id_id_category">{% trans "Category" %}</label>
+            {{ form.id_category }}
+        </div>
+        <div class="col-md-4 mb-3">
+            <label for="id_balance">{% trans "Balance (meters or pieces)" %}</label>
+            {{ form.balance }}
+        </div>
+        <div class="col-md-4 mb-3">
+            <label for="id_price">{% trans "Price" %}</label>
+            {{ material_price_form.price }}
+        </div>
+
+    </div>
+    <div class="form-row mb-3">
+        <div class="col-md-12 mb-3">
+            <label for="id_comment">{% trans "Comment" %}</label>
+            {{ form.comment }}
+        </div>
+    </div>
+    
+    <button class="btn btn-success" type="submit">{% trans "Save" %}</button>
+</form>
+
+{% endblock %}

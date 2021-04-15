@@ -32,8 +32,8 @@
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                             <a class="dropdown-item" href="{% url 'all_materials' %}">{% trans "View materials" %}</a>
                             <a class="dropdown-item" href="{% url 'all_categories' %}">{% trans "Categories" %}</a>
-                            <!-- <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="#">Something else here</a> -->
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="{% url 'add_material' %}">{% trans "New material" %}</a>
                         </div>
                     </li>
                 {% endif %}

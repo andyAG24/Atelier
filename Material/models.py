@@ -39,3 +39,6 @@ class Material(models.Model):
 
     def __str__(self):
         return _('%s %s (balance: %s m)') % (self.name, self.color, self.balance)
+
+    def get_absolute_url(self):
+        return f'/materials/view/{self.id}'

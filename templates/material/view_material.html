@@ -7,6 +7,9 @@
 <a class="btn btn-link" href="{{request.META.HTTP_REFERER}}">← {% trans 'Previous page' %}</a>
 
 <h1>{{ material.name }}, {{ material.color }}</h1>
+
+<a href="{% url 'edit_material' pk=material.id %}" class="btn btn-info">{% trans "Edit" %}</a>
+
 <div class="table-responsive mt-3">
     <table class="table">
         <tbody>
@@ -70,6 +73,34 @@
             {% endif %}
         </tbody>
     </table>
+</div>
+
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-danger" data-toggle="modal" data-target="#deleteConfirmationModal">
+    {% trans "Delete" %} {% trans "material" %}
+</button>
+  
+<!-- Delete Confirmation Modal -->
+<div class="modal fade" id="deleteConfirmationModal" tabindex="-1" role="dialog" aria-labelledby="deleteConfirmationModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="deleteConfirmationModalLabel">{% trans "Confirmation required" %}</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                {% trans "Are you sure that you want to delete" %} {% trans "material" %} - {{ material.name }}, {{ material.color }}?
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-success" data-dismiss="modal">{% trans "Cancel" %}</button>
+                <a href="{% url 'delete_material' id=material.id %}" class="btn btn-danger">
+                    {% trans "Delete" %} {% trans "material" %}
+                </a>
+            </div>
+        </div>
+    </div>
 </div>
 
 {% endblock %}

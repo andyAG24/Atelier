@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-04-13 13:40+0300\n"
+"POT-Creation-Date: 2021-04-14 03:15+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -120,7 +120,7 @@ msgstr ""
 msgid "Clients"
 msgstr ""
 
-#: .\Client\views.py:38
+#: .\Client\views.py:41 .\Material\views.py:57
 msgid "Form is invalid"
 msgstr ""
 
@@ -220,8 +220,9 @@ msgid "Material category"
 msgstr ""
 
 #: .\MaterialCategory\models.py:6 .\Material\models.py:7 .\Service\models.py:6
+#: .\templates\material\add_material.html:19
 #: .\templates\material\all_categories.html:13
-#: .\templates\material\all_materials.html:13
+#: .\templates\material\all_materials.html:14
 #: .\templates\material\view_category.html:14
 #: .\templates\material\view_material.html:14
 #: .\templates\order\view_order.html:82
@@ -231,6 +232,7 @@ msgid "Name"
 msgstr ""
 
 #: .\MaterialCategory\models.py:9 .\Material\models.py:21 .\Order\models.py:98
+#: .\templates\material\add_material.html:49
 #: .\templates\material\view_material.html:41
 #: .\templates\order\view_order.html:69
 #: .\templates\service\view_service.html:24
@@ -247,7 +249,7 @@ msgstr ""
 msgid "Material"
 msgstr ""
 
-#: .\MaterialPrice\models.py:13
+#: .\MaterialPrice\models.py:13 .\Material\forms.py:9
 msgid "Price (per meter)"
 msgstr ""
 
@@ -265,24 +267,28 @@ msgstr ""
 msgid "Materials prices"
 msgstr ""
 
-#: .\Material\models.py:10 .\templates\material\all_materials.html:16
+#: .\Material\models.py:10 .\templates\material\add_material.html:23
+#: .\templates\material\all_materials.html:17
 #: .\templates\material\view_category.html:16
 #: .\templates\material\view_material.html:28
 msgid "Vendor code"
 msgstr ""
 
-#: .\Material\models.py:17 .\templates\material\all_materials.html:14
+#: .\Material\models.py:17 .\templates\material\add_material.html:34
+#: .\templates\material\all_materials.html:15
 #: .\templates\material\view_material.html:18
 #: .\templates\order\view_order.html:83
 msgid "Category"
 msgstr ""
 
-#: .\Material\models.py:25 .\templates\material\all_materials.html:17
+#: .\Material\models.py:25 .\templates\material\add_material.html:38
+#: .\templates\material\all_materials.html:18
 #: .\templates\material\view_material.html:32
 msgid "Balance (meters or pieces)"
 msgstr ""
 
-#: .\Material\models.py:29 .\templates\material\all_materials.html:15
+#: .\Material\models.py:29 .\templates\material\add_material.html:27
+#: .\templates\material\all_materials.html:16
 #: .\templates\material\view_category.html:15
 #: .\templates\material\view_material.html:24
 msgid "Color"
@@ -429,7 +435,8 @@ msgstr ""
 msgid "Order materials"
 msgstr ""
 
-#: .\ServicePrice\models.py:15 .\templates\material\all_materials.html:18
+#: .\ServicePrice\models.py:15 .\templates\material\add_material.html:42
+#: .\templates\material\all_materials.html:19
 #: .\templates\material\view_category.html:17
 #: .\templates\material\view_material.html:36
 #: .\templates\order\view_order.html:84
@@ -464,6 +471,7 @@ msgstr ""
 
 #: .\templates\client\add_client.html:7 .\templates\client\view_client.html:9
 #: .\templates\employee\view_employee.html:17
+#: .\templates\material\add_material.html:7
 #: .\templates\material\view_category.html:7
 #: .\templates\material\view_material.html:7
 #: .\templates\order\add_order.html:7
@@ -487,6 +495,7 @@ msgid "Feet"
 msgstr ""
 
 #: .\templates\client\add_client.html:89
+#: .\templates\material\add_material.html:54
 msgid "Save"
 msgstr ""
 
@@ -522,6 +531,7 @@ msgid "Delete client"
 msgstr ""
 
 #: .\templates\client\view_client.html:154
+#: .\templates\material\view_material.html:85
 msgid "Confirmation required"
 msgstr ""
 
@@ -530,6 +540,7 @@ msgid "Are you sure that you want to delete client"
 msgstr ""
 
 #: .\templates\client\view_client.html:163
+#: .\templates\material\view_material.html:94
 msgid "Cancel"
 msgstr ""
 
@@ -579,6 +590,12 @@ msgstr ""
 msgid "Categories"
 msgstr ""
 
+#: .\templates\header.html:36 .\templates\material\add_material.html:4
+#: .\templates\material\add_material.html:9
+#: .\templates\material\all_materials.html:9
+msgid "New material"
+msgstr ""
+
 #: .\templates\header.html:47
 msgid "View clients"
 msgstr ""
@@ -593,6 +610,10 @@ msgstr ""
 
 #: .\templates\header.html:85 .\templates\registration\login.html:33
 msgid "Sign in"
+msgstr ""
+
+#: .\templates\material\add_material.html:16
+msgid "Material's information"
 msgstr ""
 
 #: .\templates\material\all_categories.html:14
@@ -620,6 +641,21 @@ msgstr ""
 #: .\templates\material\view_material.html:68
 #: .\templates\service\view_service.html:87
 msgid "There are not any price changes"
+msgstr ""
+
+#: .\templates\material\view_material.html:77
+#: .\templates\material\view_material.html:96
+msgid "Delete"
+msgstr ""
+
+#: .\templates\material\view_material.html:77
+#: .\templates\material\view_material.html:91
+#: .\templates\material\view_material.html:96
+msgid "material"
+msgstr ""
+
+#: .\templates\material\view_material.html:91
+msgid "Are you sure that you want to delete"
 msgstr ""
 
 #: .\templates\order\add_order.html:4 .\templates\order\add_order.html:9

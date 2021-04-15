@@ -14,6 +14,7 @@ def all_clients(request):
     context['clients'] = Client.objects.all()
     return render(request, 'client/all_clients.html', context)
 
+@login_required(login_url='auth')
 def view_client(request, id):
     context = {}
     context['user_group'] = request.user.groups.all()[0].name
@@ -25,6 +26,7 @@ def view_client(request, id):
     context['orders'] = get_client_orders(id)
     return render(request, 'client/view_client.html', context)
     
+@login_required(login_url='auth')
 def add_client(request):
     context = {}
     context['user_group'] = request.user.groups.all()[0].name
@@ -44,6 +46,7 @@ def add_client(request):
 
     return render(request, 'client/add_client.html', context)
 
+@login_required(login_url='auth')
 def delete_client(request, id):
     context = {}
     context['user_group'] = request.user.groups.all()[0].name
