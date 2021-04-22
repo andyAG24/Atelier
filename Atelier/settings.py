@@ -12,6 +12,8 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 import os
 from pathlib import Path
 
+from django.utils.translation import ugettext_lazy as _
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -46,6 +48,7 @@ INSTALLED_APPS = [
     'Order',
     'Service',
     'ServicePrice',
+    'flatpickr'
 ]
 
 MIDDLEWARE = [
@@ -160,3 +163,31 @@ STATICFILES_DIRS = [
 LOGIN_REDIRECT_URL = '/'
 
 LOGOUT_REDIRECT_URL = '/'
+
+
+# GLobal settings for all flatpickr inputs
+FLATPICKR_SETTINGS = {
+
+    # Name of the theme to use
+    # More themes: https://cdn.jsdelivr.net/npm/flatpickr@4.5.2/dist/themes/
+    'theme_name': 'light',
+
+    # # Complete URL of theme CSS file
+    # # theme_name is ignored if theme_url is provided
+    # 'theme_url': 'https://..',
+
+    # # Global HTML attributes for flatpickr <input> element
+    'attrs': {
+        'class': 'my-custom-class',
+        'placeholder': _('Select Date...'),
+    },
+
+    # # Global options for flatpickr
+    # # More options: https://flatpickr.js.org/options/
+    # # Some options are managed by this package e.g mode, dateFormat, altInput
+    'options': {
+        'locale': LANGUAGE_CODE,             # locale option can be set here only
+        'dateFormat': 'd/m/Y H:i',  # reflects in altFormat
+        'time_24hr': True
+    }
+}

@@ -67,6 +67,10 @@ class Order(models.Model):
                                       verbose_name=_('Start date'),
                                       blank=True,
                                       null=True)
+    target_completion_date = models.DateTimeField(db_column='Target completion date', 
+                                                  verbose_name=_('Target completion date'),
+                                                  blank=True, 
+                                                  null=True)
     end_date = models.DateTimeField(db_column='End date',
                                     verbose_name=_('End date'),
                                     blank=True,
@@ -93,9 +97,9 @@ class Order(models.Model):
                                max_length=9,
                                choices=Urgency.choices,
                                default=Urgency.LOW)
-    materials = models.ManyToManyField(Material, through='OrderMaterials')
+    materials = models.ManyToManyField(Material, through='OrderMaterials', blank=True, null=True)
     comment = models.TextField(db_column='Comment',
-                               verbose_name=_('Comment'),
+                               verbose_name=_('Commentt'),
                                blank=True,
                                null=True)
 

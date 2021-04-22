@@ -1,6 +1,12 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
+from datetime import datetime
+from django.contrib.auth.decorators import login_required
 from django.utils.translation import ugettext_lazy as _
+from django.db import models
+
 from .models import Order, OrderMaterials
+from .forms import OrderForm
+
 from Material.models import Material
 from MaterialPrice.views import get_current_price
 from Fitting.views import get_fittings
@@ -127,9 +133,26 @@ def get_localized_labour_intensity(labour_intensity):
     }
     return labour_intensities[labour_intensity]
 
+@login_required(login_url='auth')
 def add_order(request):
     context = {}
     context['user_group'] = request.user.groups.all()[0].name
+
+    errors = ''
+    if request.method == 'POST':
+        order_form = OrderForm(request.POST)
+
+        if order_form.is_valid():
+            saved_form = order_form.save(commit=False)
+            saved_form.start_date = datetime.now()
+            saved_form.save()
+            return redirect('all_orders')
+        else:
+            errors = order_form.errors
+
+    order_form = OrderForm()
+    context['form'] = order_form
+    context['errors'] = errors
 
     return render(request, 'order/add_order.html', context)
     

@@ -63,7 +63,7 @@ def add_material(request):
     material_form = MaterialForm()
     material_price_form = MaterialPriceForm()
     context['form'] = material_form
-    context['second_form'] = material_price_form
+    context['material_price_form'] = material_price_form
     context['error'] = error
 
     return render(request, 'material/add_material.html', context)

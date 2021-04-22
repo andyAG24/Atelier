@@ -1,11 +1,103 @@
 {% extends 'base.html' %}
 {% load i18n %}
+{% load static %}
 
 {% block title %}{% trans "Add order" %}{% endblock %}
 
 {% block content %}
+
+<!-- For DateTimePicker (flatpickr) -->
+<script src="https://npmcdn.com/flatpickr/dist/l10n/ru.js"></script>
+
+{% block extra_css %}
+{{ form.media.css }}
+{% endblock %}
+
+{% block extra_js %}
+{{ form.media.js }}
+{% endblock %}
+<!--  -->
+
 <a class="btn btn-link" href="{{request.META.HTTP_REFERER}}">← {% trans 'Previous page' %}</a>
 
 <h1>{% trans "Add order" %}</h1>
+
+{% if errors %}
+<div class="alert alert-danger" role="alert">
+    {{ errors }}
+</div>
+{% endif %}
+<form class="mt-4" method="POST">
+    {% csrf_token %}
+    <div class="form-row mb-2 mt-2">
+        {{ form.status }}
+        <div class="col-md-4 mb-3">
+            <label for="id_id_service">{% trans "Service" %}</label>
+            {{ form.id_service }}
+        </div>
+        <div class="col-md-4 mb-3">
+            <label for="id_id_client">{% trans "Client" %}</label>
+            {{ form.id_client }}
+        </div>
+    </div>
+    <div class="form-row mb-2">
+        <div class="col-md-4 mb-3">
+            <label for="id_target_completion_date">{% trans "Desired completion date" %}</label>
+            {{ form.target_completion_date }}
+        </div>
+        <div class="col-md-4 mb-3">
+            <label for="id_labour_intensity">{% trans "Labour intensity" %}</label>
+            {{ form.labour_intensity }}
+        </div>
+        <div class="col-md-4 mb-3">
+            <label for="id_urgency">{% trans "Urgency" %}</label>
+            {{ form.urgency }}
+        </div>
+    </div>
+
+    <h4>{% trans "Executor" %}</h4>
+    <div class="form-row mb-2 mt-2">
+        <div class="col-md-4 mb-3">
+            <label for="id_id_employee">{% trans "Sewer" %}</label>
+            {{ form.id_employee }}
+        </div>
+    </div>
+
+    <h4>{% trans "Order materials" %}</h4>
+    <div class="form-row mb-2">
+        <div class="col-md-4 mb-3">
+            <label for="id_id_category">{% trans "Order materials" %}</label>
+            {{ form.id_category }}
+        </div>
+    </div>
+
+    <h4>{% trans "Payment section" %}</h4>
+    <div class="form-row mb-2 mt-2">
+        <div class="col-md-4 mb-3">
+            <label for="id_payment_status">{% trans "Payment status" %}</label>
+            {{ form.payment_status }}
+        </div>
+        <div class="col-md-4 mb-3">
+            <label for="id_prepayment">{% trans "Prepayment" %}</label>
+            {{ form.prepayment }}
+        </div>
+        <div class="col-md-4 mb-3">
+                <label for="id_cost">{% trans "Cost" %}</label>
+                {{ form.cost }}
+        </div>
+    </div>
+    <div class="form-row mb-3">
+        
+        <div class="col-md-12 mb-3">
+            <label for="id_comment">{% trans "Comment" %}</label>
+            {{ form.comment }}
+        </div>
+    </div>
+    
+    <button class="btn btn-success" type="submit" id="add_order_button">{% trans "Save" %}</button>
+</form>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+<script src="{% static 'js/Order/updateUrgency.js' %}"></script>
 
 {% endblock %}

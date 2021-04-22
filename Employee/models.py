@@ -24,7 +24,8 @@ class Employee(models.Model):
                                      default=EmployeeType.UNDEFINED)
     phone = models.CharField(db_column='Phone',
                              verbose_name=_('Phone'),
-                             max_length=255)
+                             max_length=255,
+                             unique=True)
     work_xp = models.IntegerField(db_column='Work XP',
                                   verbose_name=_('Work XP'),
                                   blank=True,
