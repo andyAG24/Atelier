@@ -14,7 +14,7 @@ class Order(models.Model):
         CANCELLED = 'Cancelled', _('Cancelled')
         IN_PROGRESS = 'In progress', _('In progress')
         COMPLETED = 'Completed', _('Completed')
-        PASSED_TO_CLIENT = 'Passed to the client', _('Passed to the client')
+        FITTING_REQUIRED = 'Fitting required', _('Fitting required')
         RETURNED_FOR_REWORK = 'Returned for rework', _('Returned for rework')
 
     class Urgency(models.TextChoices):
@@ -117,8 +117,8 @@ def get_localized_status(status):
         'Created': _('Created'),
         'Cancelled': _('Cancelled'),
         'In progress': _('In progress'),
+        'Fitting required': _('Fitting required'),
         'Completed': _('Completed'),
-        'Passed to the client': _('Passed to the client'),
         'Returned for rework': _('Returned for rework')
     }
     return order_statuses[status]

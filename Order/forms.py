@@ -15,7 +15,7 @@ class OrderForm(ModelForm):
         CANCELLED = 'Cancelled', _('Cancelled')
         IN_PROGRESS = 'In progress', _('In progress')
         COMPLETED = 'Completed', _('Completed')
-        PASSED_TO_CLIENT = 'Passed to the client', _('Passed to the client')
+        FITTING_REQUIRED = 'Fitting required', _('Fitting required')
         RETURNED_FOR_REWORK = 'Returned for rework', _('Returned for rework')
 
     class LabourIntensity(models.TextChoices):

@@ -102,7 +102,7 @@ def get_localized_status(status):
         'Cancelled': _('Cancelled'),
         'In progress': _('In progress'),
         'Completed': _('Completed'),
-        'Passed to the client': _('Passed to the client'),
+        'Fitting required': _('Fitting required'),
         'Returned for rework': _('Returned for rework')
     }
     return order_statuses[status]

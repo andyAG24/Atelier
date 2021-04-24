@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-04-22 16:36+0300\n"
+"POT-Creation-Date: 2021-04-24 23:22+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -326,14 +326,14 @@ msgstr ""
 msgid "In progress"
 msgstr ""
 
-#: .\Order\forms.py:17 .\Order\models.py:16 .\Order\models.py:120
+#: .\Order\forms.py:17 .\Order\models.py:16 .\Order\models.py:121
 #: .\Order\views.py:104
 msgid "Completed"
 msgstr ""
 
-#: .\Order\forms.py:18 .\Order\models.py:17 .\Order\models.py:121
+#: .\Order\forms.py:18 .\Order\models.py:17 .\Order\models.py:120
 #: .\Order\views.py:105
-msgid "Passed to the client"
+msgid "Fitting required"
 msgstr ""
 
 #: .\Order\forms.py:19 .\Order\models.py:18 .\Order\models.py:122
